@@ -15,6 +15,14 @@
 # Knuckle
 
 
+## How to use
+
+```json
+"scripts": {
+    "format": "knuckle prettier 'src/**/*.{js,json}' --write",
+    "lint": "knuckle eslint src"
+}
+```
 
 ## Commands
 

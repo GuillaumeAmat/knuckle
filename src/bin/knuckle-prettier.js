@@ -4,6 +4,7 @@ import program from "commander";
 
 import getClientWorkingDir from "./utils/getClientWorkingDir";
 import getLocalConfigurationFile from "./utils/getLocalConfigurationFile";
+import getPathToBin from "./utils/getPathToBin";
 
 program
   .option("-w, --write", "write file")
@@ -28,8 +29,9 @@ program
       commandArgs.push("--write");
     }
 
-    // @ TODO run dependency version of prettier - do not use npx
-    const result = spawn.sync("npx", ["prettier", ...commandArgs], { stdio: "inherit" });
+    const prettier = getPathToBin("prettier");
+
+    const result = spawn.sync(prettier, [...commandArgs], { stdio: "inherit" });
 
     process.exit(result.status);
   })
