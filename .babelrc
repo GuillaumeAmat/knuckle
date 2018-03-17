@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "latest",
+    ["env", {
+      "targets": {
+        "node": "current"
+      }
+    }]
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-es2015-destructuring"
+  ]
+}

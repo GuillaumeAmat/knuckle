@@ -1,0 +1,42 @@
+{
+  "projectName": "knuckle",
+  "projectOwner": "knuckle",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "frosato-ekino",
+      "name": "François Rosato",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/31624379?v=4",
+      "profile": "https://github.com/frosato-ekino",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas"
+      ]
+    },
+    {
+      "login": "GuillaumeAmat",
+      "name": "Guillaume AMAT",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1179174?v=4",
+      "profile": "https://github.com/GuillaumeAmat",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "mr-wildcard",
+      "name": "Julien Viala",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6979207?v=4",
+      "profile": "https://github.com/mr-wildcard",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ]
+}
