@@ -2,6 +2,7 @@
 
 "use strict";
 
+import prettierConfig from "./prettierrc";
 import hasDependency from "../utils/hasDependency";
 
 // To Read
@@ -35,17 +36,6 @@ module.exports = {
     hasDependency("jest") ? "jest" : false,
   ].filter(Boolean),
   rules: {
-    "prettier/prettier": [
-      "error",
-      {
-        useTabs: false,
-        printWidth: 100,
-        tabWidth: 2,
-        singleQuote: true,
-        trailingComma: "all",
-        jsxBracketSameLine: true,
-        semi: true,
-      },
-    ],
+    "prettier/prettier": ["error", { ...prettierConfig }],
   },
 };
