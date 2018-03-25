@@ -88,6 +88,15 @@ change. It does this by reformating the entire file and running `git add` on
 the file after. This breaks workflows where you're trying to commit portions of
 the file only. You can always run your commit with `--no-verify`.
 
+## Making a release
+
+```sh
+$ npm version patch -m "release: %s"
+$ npm publish
+```
+
+`npm version` tests the code and build it. Then it upgrades the package version number according to the used keyword (patch, minor or major) and commit the modifications in Git (with a proper version tag). Finally, it pushes it to repository with the tag.
+
 ## Help needed
 
 Please checkout the [the open issues][issues]
