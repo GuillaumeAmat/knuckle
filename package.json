@@ -22,6 +22,9 @@
         "node": ">=8.9.1"
     },
     "main": "dist/index.js",
+    "files": [
+        "dist"
+	],
     "bin": {
         "knuckle": "dist/bin/index.js"
     },
