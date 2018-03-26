@@ -39,7 +39,9 @@
         "postinstall": "npm run build",
         "deploy": "npm publish",
         "contributors:add": "all-contributors add",
-        "contributors:generate": "all-contributors generate"
+        "contributors:generate": "all-contributors generate",
+        "preversion": "npm test && npm run build",
+        "postversion": "git push && git push --tags"
     },
     "devDependencies": {
         "@commitlint/cli": "^6.1.3",
