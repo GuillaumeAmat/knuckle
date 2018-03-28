@@ -12,10 +12,14 @@
 [eslint-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [eslint-url]: http://standardjs.com
 
+[prettier-config-path]: /src/configs/prettierrc.js
+[eslint-config-path]: /src/configs/eslintrc.js
+
+
 # Knuckle
 
 
-## How to use
+## How to use scripts
 
 ```json
 "scripts": {
@@ -25,7 +29,24 @@
 }
 ```
 
-## Commands
+### How to extends configurations
+
+#### prettier.config.js
+Prettier configuration can be extended or replaced by writing your own `prettier.config.js` in your project root folder.
+```js
+const baseConfig = require('knuckle/dist/configs/prettierrc')
+
+module.exports = {
+    ...baseConfig,
+    bracketSpacing: true, // overriding rules
+    jsxBracketSameLine: true, // overriding rules
+}
+```
+check the base configuration [here][prettier-config-path].
+
+:warning: `prettier.config.js` is the only prettier configuration file format supported so far.
+
+## Development commands
 
 * Run tests: `$ npm run test`
 * Format code: `$ npm run format`
