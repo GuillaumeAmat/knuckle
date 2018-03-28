@@ -20,7 +20,8 @@
 ```json
 "scripts": {
     "format": "knuckle prettier 'src/**/*.{js,json}' --write",
-    "lint": "knuckle eslint src"
+    "lint": "knuckle eslint src",
+    "lint:fix": "knuckle eslint src --fix"
 }
 ```
 
