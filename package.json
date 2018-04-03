@@ -24,7 +24,7 @@
     "main": "dist/index.js",
     "files": [
         "dist"
-	],
+    ],
     "bin": {
         "knuckle": "dist/bin/index.js"
     },
