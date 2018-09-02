@@ -1,17 +1,16 @@
-import readPkgUp from "read-pkg-up";
-import has from "lodash/has";
-import getClientWorkingDir from "./getClientWorkingDir";
+const readPkgUp = require('read-pkg-up');
+const has = require('lodash/has');
 
 // Read this
 // https://github.com/sindresorhus/read-pkg-up
 
 // Get client package.json
 const { pkg: packageJson } = readPkgUp.sync({
-  cwd: getClientWorkingDir(),
+  cwd: process.cwd(),
 });
 
 // Check if exists in package.json
-const hasPkgProp = dependency => has(packageJson, dependency);
+const hasPkgProp = propName => has(packageJson, propName);
 
 // Forge path
 const hasPeerDep = name => `peerDependencies.${name}`;
@@ -21,4 +20,4 @@ const hasDevDep = name => `devDependencies.${name}`;
 // Apply all checks
 const hasAnyDep = name => [hasDep, hasDevDep, hasPeerDep].some(fn => hasPkgProp(fn(name)));
 
-export default name => hasAnyDep(name);
+module.exports = name => hasAnyDep(name);

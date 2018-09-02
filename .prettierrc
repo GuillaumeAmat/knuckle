@@ -1,10 +1,15 @@
 {
-    "useTabs": false,
-    "printWidth": 100,
-    "tabWidth": 2,
-    "singleQuote": false,
-    "trailingComma": "all",
-    "jsxBracketSameLine": true,
-    "parser": "babylon",
-    "semi": true
+  "useTabs": false,
+  "printWidth": 100,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "jsxBracketSameLine": true,
+  "semi": true,
+  "overrides": [
+    {
+      "files": ".*rc",
+      "options": { "parser": "json" }
+    }
+  ]
 }

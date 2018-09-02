@@ -1,0 +1,8 @@
+{
+  "**/*.{js,jsx,ts,tsx,vue,json,yaml,css,scss,less,html,md,mdx,graphql}": [
+    "npx knuckle prettier --write",
+    "git add"
+  ],
+  "**/.*rc": ["npx knuckle prettier --write", "git add"],
+  "**/*.{js,jsx}": ["npx knuckle eslint"]
+}

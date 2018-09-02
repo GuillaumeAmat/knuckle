@@ -38,28 +38,28 @@ npm run contributor:add <github-account-name> <contribution-task>,<contribution-
 ```
 
 ### contribution-task list:
-* blog: 📝
-* bug: 🐛
-* code: 💻
-* design: 🎨
-* doc: 📖
-* eventOrganizing: 📋
-* example: 💡
-* financial: 💵
-* fundingFinding: 🔍
-* ideas: 🤔
-* infra: 🚇
-* platform: 📦
-* plugin: 🔌
-* question: 💬
-* review: 👀
-* talk: 📢
-* test: ⚠️
-* tool: 🔧
-* translation: 🌍
-* tutorial: ✅
-* video: 📹
 
+- blog: 📝
+- bug: 🐛
+- code: 💻
+- design: 🎨
+- doc: 📖
+- eventOrganizing: 📋
+- example: 💡
+- financial: 💵
+- fundingFinding: 🔍
+- ideas: 🤔
+- infra: 🚇
+- platform: 📦
+- plugin: 🔌
+- question: 💬
+- review: 👀
+- talk: 📢
+- test: ⚠️
+- tool: 🔧
+- translation: 🌍
+- tutorial: ✅
+- video: 📹
 
 Follow the prompt and commit `.all-contributorsrc` and `README.md` in the PR.
 If you've already added yourself to the list and are making
