@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function(toolName, initialValue = {}, cosmiconfigOptions = {}) {
-  const knuckleRootPath = fs.realpathSync(path.join(__dirname, '..'));
+  const knuckleRootPath = fs.realpathSync(path.join(__dirname, '../..'));
   const configExplorer = cosmiconfig(toolName, cosmiconfigOptions);
 
   const defaultConfigSearch = configExplorer.searchSync(knuckleRootPath);

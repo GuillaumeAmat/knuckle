@@ -23,6 +23,11 @@
   },
   "main": "dist/index.js",
   "files": [
+    ".eslintrc.js",
+    ".lintstagedrc",
+    ".prettierrc",
+    ".prettierignore",
+    "commitlint.config.js",
     "dist"
   ],
   "bin": {
