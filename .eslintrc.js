@@ -2,8 +2,8 @@
 
 'use strict';
 
-const hasDependency = require('./src/utils/hasDependency');
-const loadAndMergeConfig = require('./src/utils/loadAndMergeConfig');
+const hasDependency = require('./dist/utils/hasDependency');
+const loadAndMergeConfig = require('./dist/utils/loadAndMergeConfig');
 
 const prettierConfig = loadAndMergeConfig('prettier');
 delete prettierConfig.overrides;
