@@ -37,7 +37,6 @@
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "test": "echo TODO",
     "build": "babel src -d dist",
-    "postinstall": "npm run build",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "preversion": "npm test && npm run build",
