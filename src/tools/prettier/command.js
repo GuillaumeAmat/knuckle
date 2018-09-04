@@ -1,12 +1,9 @@
-import program from 'commander';
-import spawn from 'cross-spawn';
+const program = require('commander');
+const spawn = require('cross-spawn');
 
-import cosmiconfigListLoader from '../../utils/cosmiconfigListLoader';
-import createTmpFile from '../../utils/createTmpFile';
-import { getPathToBin } from '../../utils/module';
-import loadAndMergeConfig from '../../utils/loadAndMergeConfig';
+const { getPathToBin } = require('../../utils/module');
 
-export default program
+module.exports = program
   .command('prettier [path...]')
   .description('Prettier is an opinionated code formatter')
   .option(
@@ -14,36 +11,20 @@ export default program
     "Print the names of files that are different from Prettier's formatting",
   )
   .option('-w, --write', 'Edit files in-place. (Beware!)')
-  .action((targetPath = [], command) => {
-    const mainConfig = loadAndMergeConfig('prettier');
-    const tmpMainConfigFilePath = createTmpFile('prettier', JSON.stringify(mainConfig));
-
-    const ignoreConfig = loadAndMergeConfig('prettier', [], {
-      searchPlaces: ['.prettierignore'],
-      loaders: { noExt: cosmiconfigListLoader },
-    });
-
-    const tmpIgnoreConfigFilePath = createTmpFile('prettier', ignoreConfig.join('\n'));
-
-    const prettierArgs = [
-      '--config',
-      tmpMainConfigFilePath,
-      '--ignore-path',
-      tmpIgnoreConfigFilePath,
-      ...targetPath,
-    ];
+  .action((targetPath = [], command = undefined) => {
+    const args = [...targetPath];
 
     if (command.listDifferent) {
-      prettierArgs.push('--list-different');
+      args.push('--list-different');
     }
 
     if (command.write) {
-      prettierArgs.push('--write');
+      args.push('--write');
     }
 
-    const prettier = getPathToBin('prettier');
+    const bin = getPathToBin('prettier');
 
-    const result = spawn.sync(prettier, [...prettierArgs], {
+    const result = spawn.sync(bin, [...args], {
       cwd: process.cwd(),
       stdio: 'inherit',
     });

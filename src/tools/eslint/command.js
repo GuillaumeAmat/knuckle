@@ -1,10 +1,7 @@
-import program from 'commander';
-import spawn from 'cross-spawn';
+const program = require('commander');
+const spawn = require('cross-spawn');
 
-import cosmiconfigListLoader from '../../utils/cosmiconfigListLoader';
-import createTmpFile from '../../utils/createTmpFile';
-import { getPathToBin } from '../../utils/module';
-import loadAndMergeConfig from '../../utils/loadAndMergeConfig';
+const { getPathToBin } = require('../../utils/module');
 
 program
   .command('eslint [path...]')
@@ -14,36 +11,20 @@ program
     '--fix-dry-run',
     'Automatically fix problems without saving the changes to the file system',
   )
-  .action((targetPath = [], command) => {
-    const mainConfig = loadAndMergeConfig('eslint');
-    const tmpMainConfigFilePath = createTmpFile('eslint', JSON.stringify(mainConfig));
-
-    const ignoreConfig = loadAndMergeConfig('eslint', [], {
-      searchPlaces: ['.eslintignore'],
-      loaders: { noExt: cosmiconfigListLoader },
-    });
-
-    const tmpIgnoreConfigFilePath = createTmpFile('eslint', ignoreConfig.join('\n'));
-
-    const eslintArgs = [
-      '--config',
-      tmpMainConfigFilePath,
-      '--ignore-path',
-      tmpIgnoreConfigFilePath,
-      ...targetPath,
-    ];
+  .action((targetPath = [], command = undefined) => {
+    const args = [...targetPath];
 
     if (command.fix) {
-      eslintArgs.push('--fix');
+      args.push('--fix');
     }
 
     if (command.fixDryRun) {
-      eslintArgs.push('--fix-dry-run');
+      args.push('--fix-dry-run');
     }
 
-    const eslint = getPathToBin('eslint');
+    const bin = getPathToBin('eslint');
 
-    const result = spawn.sync(eslint, [...eslintArgs], {
+    const result = spawn.sync(bin, [...args], {
       cwd: process.cwd(),
       stdio: 'inherit',
     });

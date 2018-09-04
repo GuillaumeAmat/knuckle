@@ -91,7 +91,7 @@ the file only. You can always run your commit with `--no-verify`.
 ## Making a release
 
 ```sh
-$ npm version patch -m "release: %s"
+$ npm version patch -m "chore: release %s"
 $ npm publish
 ```
 

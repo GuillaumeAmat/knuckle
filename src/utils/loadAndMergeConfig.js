@@ -4,13 +4,26 @@ const path = require('path');
 
 module.exports = function(toolName, initialValue = {}, cosmiconfigOptions = {}) {
   const knuckleRootPath = fs.realpathSync(path.join(__dirname, '../..'));
-  const configExplorer = cosmiconfig(toolName, cosmiconfigOptions);
 
-  const defaultConfigSearch = configExplorer.searchSync(knuckleRootPath);
+  const defaultConfigExplorer = cosmiconfig(toolName, cosmiconfigOptions);
+  const defaultConfigSearch = defaultConfigExplorer.searchSync(knuckleRootPath);
   const defaultConfig = defaultConfigSearch ? defaultConfigSearch.config : initialValue;
 
-  const overwriteConfigSearch = configExplorer.searchSync();
-  const overwriteConfig = overwriteConfigSearch ? overwriteConfigSearch.config : initialValue;
+  const overwriteConfigDirectory = path.join(process.cwd(), '.knuckle');
+  let overwriteConfig;
+
+  try {
+    fs.accessSync(overwriteConfigDirectory);
+
+    const overwriteConfigExplorer = cosmiconfig(toolName, {
+      ...cosmiconfigOptions,
+      stopDir: overwriteConfigDirectory,
+    });
+    const overwriteConfigSearch = overwriteConfigExplorer.searchSync(overwriteConfigDirectory);
+    overwriteConfig = overwriteConfigSearch ? overwriteConfigSearch.config : initialValue;
+  } catch (e) {
+    overwriteConfig = Array.isArray(initialValue) ? [] : {};
+  }
 
   if (Array.isArray(initialValue)) {
     return [...initialValue, ...defaultConfig, ...overwriteConfig];
