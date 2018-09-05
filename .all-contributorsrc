@@ -12,14 +12,36 @@
       "name": "François Rosato",
       "avatar_url": "https://avatars3.githubusercontent.com/u/31624379?v=4",
       "profile": "https://github.com/frosato-ekino",
-      "contributions": ["code", "doc", "ideas"]
+      "contributions": [
+        "bug",
+        "code",
+        "doc",
+        "example",
+        "ideas",
+        "review",
+        "test",
+        "tool",
+        "tutorial"
+      ]
     },
     {
       "login": "GuillaumeAmat",
       "name": "Guillaume AMAT",
       "avatar_url": "https://avatars3.githubusercontent.com/u/1179174?v=4",
       "profile": "https://github.com/GuillaumeAmat",
-      "contributions": ["code", "doc", "ideas"]
+      "contributions": [
+        "bug",
+        "code",
+        "doc",
+        "example",
+        "ideas",
+        "platform",
+        "review",
+        "talk",
+        "test",
+        "tool",
+        "tutorial"
+      ]
     },
     {
       "login": "mr-wildcard",
