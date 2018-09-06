@@ -14,6 +14,7 @@ const { printErrorAndExit, printMessageAndExit } = require('../utils/output');
 require('../tools/eslint/command');
 require('../tools/lint-staged/command');
 require('../tools/prettier/command');
+require('../tools/tslint/command');
 
 program.version(knuckleVersion, '-v, --version').usage('<command> [options]');
 
