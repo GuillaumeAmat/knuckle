@@ -10,9 +10,7 @@
 [all-contributors-image]: https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square
 [prettier-image]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
 [prettier-url]: https://github.com/prettier/prettier
-[eslint-url]: https://github.com/eslint/eslint
 [cosmiconfig-url]: https://github.com/davidtheclark/cosmiconfig
-[lint-staged-url]: https://github.com/okonet/lint-staged
 [tslint-url]: https://github.com/palantir/tslint
 [commitlint-url]: https://github.com/marionebl/commitlint
 [stylelint-url]: https://github.com/stylelint/stylelint
@@ -125,9 +123,9 @@ You can see that `semi` is set to `false` in the root `.prettierrc`.
 
 For now, the available tools are:
 
-- [Prettier][prettier-url]
-- [ESLint][eslint-url]
-- [Lint-Staged][lint-staged-url]
+- [Prettier](tree/develop/src/tools/prettier)
+- [ESLint](tree/develop/src/tools/eslint)
+- [Lint-Staged](tree/develop/src/tools/lint-staged)
 
 But many others will follow (PRs are welcome by the way ;) ):
 
