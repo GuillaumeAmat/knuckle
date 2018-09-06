@@ -10,9 +10,10 @@
 [npm-version-url]: https://npm.im/knuckle
 [all-contributors-image]: https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square
 [prettier-image]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
-[prettier-url]: https://github.com/prettier/prettier
+[prettier-url]: https://prettier.io
 [knuckle-image]: https://img.shields.io/badge/config-knuckle-ff5c00.svg?style=flat-square
 [knuckle-url]: https://github.com/GuillaumeAmat/knuckle
+[eslint-url]: https://eslint.org
 [cosmiconfig-url]: https://github.com/davidtheclark/cosmiconfig
 [tslint-url]: https://github.com/palantir/tslint
 [commitlint-url]: https://github.com/marionebl/commitlint
@@ -21,9 +22,11 @@
 
 # 👊 Knuckle
 
-Knuckle is the link between your source code and your dev tools. It gives you the base configuration for your project, out of the box.
+Knuckle is the link between your source code and your dev tools. It gives you some great default configurations and CLI options for the dev tools of your projects, out of the box.
 
-All you need to do is to call Knuckle and to ask him the smaller thing as possible. All the configuration and best practices are handled by him.
+In other words, you don't need to write and maintain the configurations of your dev tools anymore (eg: [ESLint][eslint-url]). Knuckle does that for you.
+
+All you need to do is to call Knuckle and to ask him the smaller thing as possible.
 
 Let's say you want to format your code. You probably already use [Prettier][prettier-url] to do that but you had to create your own configuration file.
 
@@ -43,6 +46,7 @@ Instead, Knuckle only ask you path and action. That's it!
   - [Why versionning the generated files?](#why-versionning-the-generated-files)
   - [Where is the .knuckle folder?](#where-is-the-knuckle-folder)
   - [Can I modify the generated files?](#can-i-modify-the-generated-files)
+  - [How do I stop using Knuckle?](#how-do-i-stop-using-knuckle)
   - [Why not to use abstract commands?](#why-not-to-use-abstract-commands)
 - [Contributors](#contributors)
 
@@ -201,6 +205,14 @@ Sure! But Knuckle will replace your modifications at the next `knuckle up`...
 Instead, use the `.knuckle` folder to set some configuration overwrites. It is the normal way to extend the configurations.
 
 More informations in the [Extend configurations](#extend-configurations) section.
+
+### How do I stop using Knuckle?
+
+As Knuckle generates regular configuration files, all you need to do is remove the Knuckle package and its own configuration files:
+
+```bash
+$ npm uninstall knuckle && rm -rf ./.knuckle*
+```
 
 ### Why not to use abstract commands?
 
