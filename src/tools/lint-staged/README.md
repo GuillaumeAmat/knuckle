@@ -6,4 +6,4 @@
 
 ## Configuration files
 
-- [.lintstagedrc](../../.lintstagedrc)
+- [.lintstagedrc](../../../.lintstagedrc)

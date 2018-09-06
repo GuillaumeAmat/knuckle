@@ -7,5 +7,5 @@
 
 ## Configuration files
 
-- [.eslintrc.js](../../.eslintrc.js)
-- [.eslintignore](../../.eslintignore)
+- [.eslintrc.js](../../../.eslintrc.js)
+- [.eslintignore](../../../.eslintignore)
