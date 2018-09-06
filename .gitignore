@@ -16,3 +16,6 @@ dist
 
 # IDE
 .idea
+
+# Unwanted lock file
+yarn.lock
