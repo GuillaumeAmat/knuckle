@@ -4,5 +4,6 @@
     "git add"
   ],
   "**/.*rc": ["npx knuckle prettier --write", "git add"],
-  "**/*.{js,jsx}": ["npx knuckle eslint"]
+  "**/*.{js,jsx}": ["npx knuckle eslint"],
+  "**/*.{ts,tsx}": ["npx knuckle tslint"]
 }
