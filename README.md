@@ -2,6 +2,7 @@
 [![NPM version][npm-version-image]][npm-version-url]
 [![All Contributors][all-contributors-image]](#contributors)
 [![code style: prettier][prettier-image]][prettier-url]
+[![config: knuckle][knuckle-image]][knuckle-url]
 
 [license-image]: https://img.shields.io/github/license/GuillaumeAmat/knuckle.svg?style=flat-square
 [license-url]: https://github.com/GuillaumeAmat/knuckle/blob/master/LICENSE
@@ -10,6 +11,8 @@
 [all-contributors-image]: https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square
 [prettier-image]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
 [prettier-url]: https://github.com/prettier/prettier
+[knuckle-image]: https://img.shields.io/badge/config-knuckle-ff5c00.svg?style=flat-square
+[knuckle-url]: https://github.com/GuillaumeAmat/knuckle
 [cosmiconfig-url]: https://github.com/davidtheclark/cosmiconfig
 [tslint-url]: https://github.com/palantir/tslint
 [commitlint-url]: https://github.com/marionebl/commitlint
@@ -34,6 +37,7 @@ Instead, Knuckle only ask you path and action. That's it!
   - [Extend configurations](#extend-configurations)
 - [Available tools](#available-tools)
   - [Tools versions](#tools-versions)
+- [Badge](#badge)
 - [Frequently Asked Questions](#frequently-asked-questions)
   - [Why generating the configuration files rather than hiding them?](#why-generating-the-configuration-files-rather-than-hiding-them)
   - [Why versionning the generated files?](#why-versionning-the-generated-files)
@@ -107,7 +111,7 @@ If the default configuration of a tool does not perfectly suit your needs, you c
 
 Just create a `.knuckle` folder at the root of your project and put some configuration files in it. Knuckle will detect and apply them over its default configurations.
 
-For exemple, Knuckle's Prettier configuration includes semicolons but maybe you don't want them in your code. All you need to do is to create a Prettier configuration file in a `.knuckle` folder at the root of your project (eg: `.knuckle/.prettierrc`) and to put the following configuration in it:
+For exemple, Knuckle's Prettier configuration includes semicolons (which is the default Prettier behavior) but maybe you don't want them in your code. All you need to do is to create a Prettier configuration file in a `.knuckle` folder at the root of your project (eg: `.knuckle/.prettierrc`) and to put the following configuration in it:
 
 ```json
 {
@@ -150,6 +154,14 @@ You can easily see the different versions of Knuckle and the tools by using the 
 ```bash
 $ npx knuckle version
 $ npx knuckle version eslint
+```
+
+## Badge
+
+[![config: knuckle](https://img.shields.io/badge/config-knuckle-ff5c00.svg?style=flat-square)](https://github.com/GuillaumeAmat/knuckle)
+
+```
+[![config: knuckle](https://img.shields.io/badge/config-knuckle-ff5c00.svg?style=flat-square)](https://github.com/GuillaumeAmat/knuckle)
 ```
 
 ## Frequently Asked Questions
