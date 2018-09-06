@@ -5,11 +5,11 @@ const cosmiconfig = require('cosmiconfig');
 const difference = require('lodash/difference');
 const sortedUniq = require('lodash/sortedUniq');
 const path = require('path');
-const { EOL } = require('os');
 
 const { version: knuckleVersion } = require('../../package.json');
 const { writeFile, writeJson } = require('../utils/file');
 const { getModuleInfo, validateModuleList } = require('../utils/module');
+const { printErrorAndExit, printMessageAndExit } = require('../utils/output');
 
 require('../tools/eslint/command');
 require('../tools/lint-staged/command');
@@ -34,8 +34,7 @@ program
     try {
       validateModuleList(newTools);
     } catch (e) {
-      process.stderr.write(`${e.message} You can't add it.${EOL}`);
-      process.exit(1);
+      printErrorAndExit(`${e.message} You can't add it.`);
     }
 
     writeJson(configFilePath, newConfig);
@@ -74,10 +73,9 @@ program
     const configSearch = configExplorer.searchSync();
 
     if (!configSearch || !configSearch.config.tools) {
-      process.stderr.write(
-        `Unable to find the Knuckle configuration. Did you \`knuckle add\` some tools?${EOL}`,
+      printErrorAndExit(
+        'Unable to find the Knuckle configuration. Did you `knuckle add` some tools?',
       );
-      process.exit(1);
     }
 
     const { tools } = configSearch.config;
@@ -101,8 +99,7 @@ program
   .description('Output the tool version')
   .action(toolName => {
     if (!toolName) {
-      process.stdout.write(`${knuckleVersion}${EOL}`);
-      process.exit(0);
+      printMessageAndExit(knuckleVersion);
     }
 
     const cleanedName = path.basename(toolName);
@@ -110,13 +107,11 @@ program
     try {
       validateModuleList([toolName]);
     } catch (e) {
-      process.stderr.write(`${e.message} You can't ask for its version.${EOL}`);
-      process.exit(1);
+      printErrorAndExit(`${e.message} You can't ask for its version.`);
     }
 
     const { version } = getModuleInfo(cleanedName);
-    process.stdout.write(`${version}${EOL}`);
-    process.exit(0);
+    printMessageAndExit(version);
   });
 
 program.parse(process.argv);
