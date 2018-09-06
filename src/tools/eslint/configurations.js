@@ -1,13 +1,14 @@
 const { EOL } = require('os');
 
 const cosmiconfigListLoader = require('../../utils/cosmiconfigListLoader');
+const { formatJson } = require('../../utils/file');
 const loadAndMergeConfig = require('../../utils/loadAndMergeConfig');
 
 module.exports = [
   {
     filename: '.eslintrc',
     get: () => loadAndMergeConfig('eslint'),
-    format: config => JSON.stringify(config, null, '  '),
+    format: config => formatJson(config),
   },
   {
     filename: '.eslintignore',

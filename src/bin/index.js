@@ -2,20 +2,18 @@
 
 const program = require('commander');
 const cosmiconfig = require('cosmiconfig');
-const fs = require('fs');
 const difference = require('lodash/difference');
 const sortedUniq = require('lodash/sortedUniq');
 const path = require('path');
 const { EOL } = require('os');
 
 const { version: knuckleVersion } = require('../../package.json');
+const { writeFile, writeJson } = require('../utils/file');
 const { getModuleInfo, validateModuleList } = require('../utils/module');
 
 require('../tools/eslint/command');
 require('../tools/lint-staged/command');
 require('../tools/prettier/command');
-
-const EOF = EOL + EOL;
 
 program.version(knuckleVersion, '-v, --version').usage('<command> [options]');
 
@@ -32,7 +30,6 @@ program
       ...currentConfig,
       tools: sortedUniq([...(currentConfig.tools || []), ...newTools].sort()),
     };
-    const configContent = JSON.stringify(newConfig, null, '  ');
 
     try {
       validateModuleList(newTools);
@@ -41,7 +38,7 @@ program
       process.exit(1);
     }
 
-    fs.writeFileSync(configFilePath, `${configContent}${EOF}`);
+    writeJson(configFilePath, newConfig);
 
     process.exit(0);
   });
@@ -63,9 +60,8 @@ program
       ...currentConfig,
       tools: sortedUniq(difference(currentConfig.tools, [toolName, ...toolNames]).sort()),
     };
-    const configContent = JSON.stringify(newConfig, null, '  ');
 
-    fs.writeFileSync(configFilePath, `${configContent}${EOF}`);
+    writeJson(configFilePath, newConfig);
 
     process.exit(0);
   });
@@ -93,7 +89,7 @@ program
         const configFilePath = path.join(process.cwd(), configuration.filename);
         const configContent = configuration.format(configuration.get());
 
-        fs.writeFileSync(configFilePath, `${configContent}${EOF}`);
+        writeFile(configFilePath, configContent);
       }
     }
 
