@@ -25,11 +25,13 @@ Knuckle is the link between your source code and your dev tools. It gives you so
 
 In other words, you don't need to write and maintain the configurations of your dev tools anymore (eg: [ESLint][eslint-url]). Knuckle does that for you.
 
-All you need to do is to call Knuckle and to ask him the smaller thing as possible.
-
 Let's say you want to format your code. You probably already use [Prettier][prettier-url] to do that but you had to create your own configuration file.
 
-Instead, Knuckle only ask you path and action. That's it!
+Instead, Knuckle does it for you. You only need to:
+
+- Tell to Knuckle which tools you want him to handle
+- Ask him to generate the related configuration files
+- And you're done!
 
 ## Table of Contents
 
