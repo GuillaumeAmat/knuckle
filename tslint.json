@@ -1,6 +1,6 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+  "extends": ["tslint:latest"],
   "rules": {
     "no-implicit-dependencies": [true, ["src"]],
     "no-submodule-imports": false
