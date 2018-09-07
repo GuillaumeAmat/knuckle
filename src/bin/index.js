@@ -86,7 +86,7 @@ program
 
       for (const configuration of configurations) {
         const configFilePath = path.join(process.cwd(), configuration.filename);
-        const configContent = configuration.format(configuration.get());
+        const configContent = configuration.format(configuration.get(tools));
 
         writeFile(configFilePath, configContent);
       }
