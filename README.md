@@ -15,7 +15,6 @@
 [knuckle-url]: https://github.com/GuillaumeAmat/knuckle
 [eslint-url]: https://eslint.org
 [cosmiconfig-url]: https://github.com/davidtheclark/cosmiconfig
-[tslint-url]: https://github.com/palantir/tslint
 [commitlint-url]: https://github.com/marionebl/commitlint
 [stylelint-url]: https://github.com/stylelint/stylelint
 [jest-url]: https://github.com/facebook/jest
@@ -106,7 +105,8 @@ knuckle
 ├── .eslintrc.js
 ├── .lintstagedrc
 ├── .prettierignore
-└── .prettierrc
+├── .prettierrc
+└── tslint.json
 ```
 
 ### Extend configurations
@@ -134,10 +134,10 @@ For now, the available tools are:
 - [Prettier](tree/develop/src/tools/prettier)
 - [ESLint](tree/develop/src/tools/eslint)
 - [Lint-Staged](tree/develop/src/tools/lint-staged)
+- [TSLint](tree/develop/src/tools/tslint)
 
 But many others will follow (PRs are welcome by the way ;) ):
 
-- [TSLint][tslint-url]
 - [Commitlint][commitlint-url]
 - [Stylelint][stylelint-url]
 - [Jest][jest-url]
