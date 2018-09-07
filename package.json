@@ -28,6 +28,7 @@
     ".prettierrc",
     ".prettierignore",
     "commitlint.config.js",
+    "tslint.json",
     "dist"
   ],
   "bin": {
