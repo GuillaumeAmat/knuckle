@@ -1,5 +1,5 @@
 const { formatJson } = require('../../utils/file');
-const hasDependency = require('../../utils/hasDependency');
+const { hasPrettier, hasReact } = require('../../utils/hasDependency');
 const loadAndMergeConfig = require('../../utils/loadAndMergeConfig');
 
 module.exports = [
@@ -12,10 +12,8 @@ module.exports = [
         ...config,
         extends: [
           ...config.extends,
-          hasDependency('prettier') ? 'tslint-config-prettier' : false,
-          configuredTools.includes('prettier') ? 'tslint-config-prettier' : false,
-          hasDependency('react') ? 'tslint-react' : false,
-          hasDependency('react-scripts') ? 'tslint-react' : false,
+          hasPrettier(configuredTools) ? 'tslint-config-prettier' : false,
+          hasReact(configuredTools) ? 'tslint-react' : false,
         ].filter(Boolean),
       };
     },

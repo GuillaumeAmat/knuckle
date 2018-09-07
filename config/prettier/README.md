@@ -7,5 +7,5 @@
 
 ## Configuration files
 
-- [.prettierrc](../../../.prettierrc)
-- [.prettierignore](../../../.prettierignore)
+- [.prettierrc](./.prettierrc)
+- [.prettierignore](./.prettierignore)

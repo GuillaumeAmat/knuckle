@@ -3,10 +3,13 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function(toolName, initialValue = {}, cosmiconfigOptions = {}) {
-  const knuckleRootPath = fs.realpathSync(path.join(__dirname, '../..'));
+  const toolDirectory = fs.realpathSync(path.join(__dirname, '../../config', toolName));
 
-  const defaultConfigExplorer = cosmiconfig(toolName, cosmiconfigOptions);
-  const defaultConfigSearch = defaultConfigExplorer.searchSync(knuckleRootPath);
+  const defaultConfigExplorer = cosmiconfig(toolName, {
+    ...cosmiconfigOptions,
+    stopDir: toolDirectory,
+  });
+  const defaultConfigSearch = defaultConfigExplorer.searchSync(toolDirectory);
   const defaultConfig = defaultConfigSearch ? defaultConfigSearch.config : initialValue;
 
   const overwriteConfigDirectory = path.join(process.cwd(), '.knuckle');

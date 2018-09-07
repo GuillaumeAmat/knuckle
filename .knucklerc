@@ -1,0 +1,3 @@
+{
+  "tools": ["eslint", "lint-staged", "prettier"]
+}

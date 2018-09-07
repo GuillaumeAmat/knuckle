@@ -21,7 +21,7 @@
 
 # 👊 Knuckle
 
-Knuckle is the link between your source code and your dev tools. It gives you some great default configurations and CLI options for the dev tools of your projects, out of the box.
+Knuckle is the link between your source code and your dev tools. It gives you some great configurations and CLI options for the dev tools of your projects, out of the box.
 
 In other words, you don't need to write and maintain the configurations of your dev tools anymore (eg: [ESLint][eslint-url]). Knuckle does that for you.
 
@@ -35,7 +35,7 @@ Instead, Knuckle only ask you path and action. That's it!
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Default configurations](#default-configurations)
+  - [Configurations](#configurations)
   - [Extend configurations](#extend-configurations)
 - [Available tools](#available-tools)
   - [Tools versions](#tools-versions)
@@ -73,7 +73,7 @@ $ npx knuckle up
 
 Add the generated configuration files to your versionning system, like before, and your done!
 
-It is really important to `knuckle up` every time you upgrade Knuckle or want to overwrite its default configurations.
+It is really important to `knuckle up` every time you upgrade Knuckle or want to overwrite its configurations.
 
 In the early stages of Knuckle no files were created in your project. It seems handy at first but the big caveat is that your IDE can't see the tools configuration... More informations in the [FAQ section](#frequently-asked-questions).
 
@@ -95,25 +95,15 @@ Of course, you can write your own NPM scripts with the same commands:
 
 Under the hood, Knuckle calls the tools by adding some options in order to have the best usage of each tool.
 
-### Default configurations
+### Configurations
 
-Knuckle dogfoods itself, so you can find all the default configurations at the root of the project:
-
-```
-knuckle
-├── .eslintignore
-├── .eslintrc.js
-├── .lintstagedrc
-├── .prettierignore
-├── .prettierrc
-└── tslint.json
-```
+The configurations are generated from a base file, located in the `config` directory of Knuckle, and some plugins/configurations related to the dependendencies of your project (eg: React ESLint plugin).
 
 ### Extend configurations
 
-If the default configuration of a tool does not perfectly suit your needs, you can extend it very easily.
+If the configuration of a tool does not perfectly suit your needs, you can extend it very easily.
 
-Just create a `.knuckle` folder at the root of your project and put some configuration files in it. Knuckle will detect and apply them over its default configurations.
+Just create a `.knuckle` folder at the root of your project and put some configuration files in it. Knuckle will detect and apply them over its configurations.
 
 For exemple, Knuckle's Prettier configuration includes semicolons (which is the default Prettier behavior) but maybe you don't want them in your code. All you need to do is to create a Prettier configuration file in a `.knuckle` folder at the root of your project (eg: `.knuckle/.prettierrc`) and to put the following configuration in it:
 

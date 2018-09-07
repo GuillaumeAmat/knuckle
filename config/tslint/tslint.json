@@ -1,0 +1,11 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest"],
+  "rules": {
+    "no-implicit-dependencies": [true, ["src"]],
+    "no-submodule-imports": false
+  },
+  "linterOptions": {
+    "exclude": ["**/*.js", "**/*.json", "**/.storybook/*.js", "**/*.d.ts"]
+  }
+}

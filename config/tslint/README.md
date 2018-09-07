@@ -7,4 +7,4 @@
 
 ## Configuration files
 
-- [tslint.json](../../../tslint.json)
+- [tslint.json](./tslint.json)

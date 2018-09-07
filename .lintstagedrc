@@ -1,9 +1,9 @@
 {
   "**/*.{js,jsx,ts,tsx,vue,json,yaml,css,scss,less,html,md,mdx,graphql}": [
-    "npx knuckle prettier --write",
+    "npm run knuckle -- prettier --write",
     "git add"
   ],
-  "**/.*rc": ["npx knuckle prettier --write", "git add"],
-  "**/*.{js,jsx}": ["npx knuckle eslint"],
-  "**/*.{ts,tsx}": ["npx knuckle tslint"]
+  "**/.*rc": ["npm run knuckle -- prettier --write", "git add"],
+  "**/*.{js,jsx}": ["npm run knuckle -- eslint"],
+  "**/*.{ts,tsx}": ["npm run knuckle -- tslint"]
 }

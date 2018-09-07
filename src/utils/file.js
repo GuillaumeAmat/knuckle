@@ -1,14 +1,14 @@
 const fs = require('fs');
 const { EOL } = require('os');
 
-const EOF = EOL + EOL;
+const EOF = EOL;
 
 function formatJson(object) {
   return JSON.stringify(object, null, '  ');
 }
 
 function writeFile(path, content) {
-  return fs.writeFileSync(path, `${content}${EOF}`);
+  return fs.writeFileSync(path, `${content.trim()}${EOF}`);
 }
 
 function writeJson(path, object) {
