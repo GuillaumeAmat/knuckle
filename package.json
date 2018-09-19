@@ -21,7 +21,7 @@
   "engines": {
     "node": ">=8.9.1"
   },
-  "main": "dist/index.js",
+  "main": "dist/bin/index.js",
   "files": [
     "config",
     "dist"
