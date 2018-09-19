@@ -21,8 +21,9 @@ module.exports = [
         ...config,
         extends: [
           ...config.extends,
-          hasPrettierCheck ? 'prettier' : false,
           hasReactCheck ? 'plugin:react/recommended' : false,
+          hasPrettierCheck ? 'prettier' : false,
+          hasPrettierCheck && hasReactCheck ? 'prettier/react' : false,
         ].filter(Boolean),
         env: {
           ...config.env,
