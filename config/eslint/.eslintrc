@@ -12,5 +12,7 @@
   },
   "parser": "babel-eslint",
   "plugins": [],
-  "rules": {}
+  "rules": {
+    "no-case-declarations": "off"
+  }
 }
