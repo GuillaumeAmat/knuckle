@@ -38,7 +38,7 @@
     "precommit": "lint-staged",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "test": "echo TODO",
-    "build": "babel src -d dist",
+    "build": "rimraf dist && babel src -d dist",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "preversion": "npm test && npm run build",
@@ -51,7 +51,8 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-latest": "^6.24.1",
     "cross-spawn": "^6.0.5",
-    "husky": "^0.14.3"
+    "husky": "^0.14.3",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
     "@commitlint/cli": "^7.1.1",
