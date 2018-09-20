@@ -123,10 +123,10 @@ You can see that `semi` is set to `false` in the root `.prettierrc`.
 
 For now, the available tools are:
 
-- [Prettier](tree/develop/src/tools/prettier)
-- [ESLint](tree/develop/src/tools/eslint)
-- [Lint-Staged](tree/develop/src/tools/lint-staged)
-- [TSLint](tree/develop/src/tools/tslint)
+- [Prettier](config/prettier)
+- [ESLint](config/eslint)
+- [Lint-Staged](config/lint-staged)
+- [TSLint](config/tslint)
 
 But many others will follow (PRs are welcome by the way ;) ):
 
