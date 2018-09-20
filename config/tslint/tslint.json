@@ -2,7 +2,7 @@
   "defaultSeverity": "error",
   "extends": ["tslint:latest"],
   "rules": {
-    "no-implicit-dependencies": [true, ["src"]],
+    "no-implicit-dependencies": [true, "dev", ["src"]],
     "no-submodule-imports": false
   },
   "linterOptions": {
