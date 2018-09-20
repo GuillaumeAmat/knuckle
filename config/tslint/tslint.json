@@ -6,6 +6,6 @@
     "no-submodule-imports": false
   },
   "linterOptions": {
-    "exclude": ["**/*.js", "**/*.json", "**/.storybook/*.js", "**/*.d.ts"]
+    "exclude": ["**/*.{js,jsx,json,d.ts}"]
   }
 }
