@@ -9,3 +9,7 @@
 
 - [.prettierrc](./.prettierrc)
 - [.prettierignore](./.prettierignore)
+
+## Dependencies
+
+- `prettier@1.14`

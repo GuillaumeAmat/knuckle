@@ -7,3 +7,7 @@
 ## Configuration files
 
 - [.lintstagedrc](./.lintstagedrc)
+
+## Dependencies
+
+- `lint-staged@7.3`

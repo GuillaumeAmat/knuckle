@@ -5,6 +5,7 @@ const cosmiconfig = require('cosmiconfig');
 const difference = require('lodash/difference');
 const sortedUniq = require('lodash/sortedUniq');
 const path = require('path');
+const spawn = require('cross-spawn');
 
 const { version: knuckleVersion } = require('../../package.json');
 const { writeFile, writeJson } = require('../utils/file');
@@ -36,6 +37,22 @@ program
       validateModuleList(newTools);
     } catch (e) {
       printErrorAndExit(`${e.message} You can't add it.`);
+    }
+
+    const newDependencies = [];
+
+    for (const newTool of newTools) {
+      const dependencies = require(path.join(__dirname, '../tools', newTool, 'dependencies'));
+      newDependencies.push(...dependencies.getDependencies(newConfig.tools));
+    }
+
+    const result = spawn.sync('npm', ['install', '-D', ...newDependencies], {
+      cwd: process.cwd(),
+      stdio: 'inherit',
+    });
+
+    if (result.status > 0) {
+      process.exit(result.status);
     }
 
     writeJson(configFilePath, newConfig);

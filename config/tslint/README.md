@@ -8,3 +8,9 @@
 ## Configuration files
 
 - [tslint.json](./tslint.json)
+
+## Dependencies
+
+- `tslint@5.11`
+- `tslint-config-prettier@1.15`
+- `tslint-react@3.6`

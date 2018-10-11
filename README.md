@@ -67,6 +67,8 @@ Then, we tell to Knuckle to handle some tools:
 $ npx knuckle add prettier eslint lint-staged
 ```
 
+It saves your choices into its `.knucklerc` file and install the required dependecies.
+
 Finally, Knuckle generates the related configurations at the root of your project:
 
 ```bash
