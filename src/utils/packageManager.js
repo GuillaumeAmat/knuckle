@@ -27,7 +27,7 @@ function install(dependencies) {
     args = ['install', '-D', ...dependencies];
   }
 
-  spawn.sync(bin, args, {
+  return spawn.sync(bin, args, {
     cwd: process.cwd(),
     stdio: 'inherit',
   });
