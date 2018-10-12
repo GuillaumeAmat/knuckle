@@ -67,13 +67,13 @@ Then, we tell to Knuckle to handle some tools:
 $ npx knuckle add prettier eslint lint-staged
 ```
 
-It saves your choices into its `.knucklerc` file and install the required dependecies.
-
 Finally, Knuckle generates the related configurations at the root of your project:
 
 ```bash
 $ npx knuckle up
 ```
+
+It installs the tools dependencies and generates the related configuration files.
 
 Add the generated configuration files to your versionning system, like before, and your done!
 
@@ -144,6 +144,17 @@ $ npx knuckle prettier 'src/**/*' --list-different
 $ npx knuckle eslint src
 $ npx knuckle lint-staged
 ```
+
+### Help
+
+Use the `--help` option in front of any command:
+
+```bash
+$ npx knuckle --help
+$ npx knuckle --help up
+```
+
+If you need more explanations about the Knuckle or its usage, feel free to ask questions on the [repository issues][knuckle-url].
 
 ### Tools versions
 
