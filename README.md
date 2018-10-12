@@ -64,7 +64,7 @@ $ npm install --save-dev knuckle
 Then, we tell to Knuckle to handle some tools:
 
 ```bash
-$ npx knuckle add prettier eslint lint-staged
+$ npx knuckle add prettier eslint lint-staged husky
 ```
 
 Finally, Knuckle generates the related configurations at the root of your project:
@@ -127,6 +127,7 @@ For now, the available tools are:
 
 - [Prettier](config/prettier)
 - [ESLint](config/eslint)
+- [Husky](config/husky)
 - [Lint-Staged](config/lint-staged)
 - [TSLint](config/tslint)
 

@@ -28,11 +28,17 @@ const hasReact = () => hasDependency('react') || hasDependency('react-scripts');
 const hasJest = configuredTools => hasDependency('jest') || configuredTools.includes('jest');
 const hasEslint = configuredTools => hasDependency('eslint') || configuredTools.includes('eslint');
 const hasTslint = configuredTools => hasDependency('tslint') || configuredTools.includes('tslint');
+const hasLintStaged = configuredTools =>
+  hasDependency('lint-staged') || configuredTools.includes('lint-staged');
+const hasCommitlint = configuredTools =>
+  hasDependency('@commitlint/cli') || configuredTools.includes('commitlint');
 
 module.exports = {
+  hasCommitlint,
   hasDependency,
   hasEslint,
   hasJest,
+  hasLintStaged,
   hasPrettier,
   hasReact,
   hasTslint,
