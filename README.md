@@ -29,7 +29,9 @@ Let's say you want to format your code. You probably already use [Prettier][pret
 Instead, Knuckle does it for you. You only need to:
 
 - Tell to Knuckle which tools you want him to handle
-- Ask him to generate the related configuration files
+- Ask him to automatically:
+  - Generate the related configuration files
+  - Install the dependencies
 - And you're done!
 
 ## Table of Contents
