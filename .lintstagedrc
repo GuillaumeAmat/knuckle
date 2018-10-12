@@ -4,6 +4,5 @@
     "git add"
   ],
   "**/.*rc": ["npm run knuckle -- prettier --write", "git add"],
-  "**/*.{js,jsx}": ["npm run knuckle -- eslint"],
-  "**/*.{ts,tsx}": ["npm run knuckle -- tslint"]
+  "**/*.{js,jsx}": ["npm run knuckle -- eslint"]
 }

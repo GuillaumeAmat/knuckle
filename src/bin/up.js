@@ -1,6 +1,7 @@
 const program = require('commander');
 const cosmiconfig = require('cosmiconfig');
 const path = require('path');
+const spawn = require('cross-spawn');
 
 const { writeFile } = require('../utils/file');
 const { printErrorAndExit } = require('../utils/output');
@@ -19,6 +20,7 @@ program
     }
 
     const { tools } = configSearch.config;
+    const dependencies = [];
 
     for (const toolName of tools) {
       const configurations = require(path.join(__dirname, '../tools', toolName, 'configurations'));
@@ -29,7 +31,15 @@ program
 
         writeFile(configFilePath, configContent);
       }
+
+      const toolDependencies = require(path.join(__dirname, '../tools', toolName, 'dependencies'));
+      dependencies.push(...toolDependencies.getDependencies(tools));
     }
 
-    process.exit(0);
+    const result = spawn.sync('npm', ['install', '-D', ...dependencies], {
+      cwd: process.cwd(),
+      stdio: 'inherit',
+    });
+
+    process.exit(result.status);
   });
