@@ -7,6 +7,10 @@ function isNpmHandledProject() {
   return cwdFiles.includes('package-lock.json');
 }
 
+function isPnpmHandledProject() {
+  return cwdFiles.includes('shrinkwrap.yaml');
+}
+
 function isYarnHandledProject() {
   return cwdFiles.includes('yarn.lock');
 }
@@ -18,6 +22,9 @@ function install(dependencies) {
   if (isYarnHandledProject()) {
     bin = 'yarn';
     args = ['add', '-D', ...dependencies];
+  } else if (isPnpmHandledProject()) {
+    bin = 'pnpm';
+    args = ['install', '-D', ...dependencies];
   }
 
   spawn.sync(bin, args, {
