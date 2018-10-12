@@ -1,8 +1,7 @@
 {
   "presets": [
-    "latest",
     [
-      "env",
+      "@babel/env",
       {
         "targets": {
           "node": "current"
@@ -10,16 +9,5 @@
       }
     ]
   ],
-  "plugins": [
-    "syntax-trailing-function-commas",
-    "transform-object-rest-spread",
-    "transform-es2015-destructuring",
-    [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true
-      }
-    ]
-  ]
+  "plugins": ["@babel/plugin-proposal-object-rest-spread", "@babel/plugin-transform-runtime"]
 }

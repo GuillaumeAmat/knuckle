@@ -31,7 +31,6 @@
   },
   "scripts": {
     "knuckle": "babel-node src/bin/index.js",
-    "postinstall": "knuckle up",
     "format": "npm run knuckle -- prettier --write 'src/**/*.{js,json}'",
     "format:test": "npm run knuckle -- prettier --list-different 'src/**/*.{js,json}'",
     "lint-js": "npm run knuckle -- eslint src",
@@ -43,18 +42,17 @@
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/runtime": "^7.1.2",
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
     "all-contributors-cli": "^5.4.0",
-    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
-    "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
-    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-latest": "^6.24.1",
-    "cross-spawn": "^6.0.5",
     "eslint": "^5.6.1",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-prettier": "^3.0.0",
@@ -66,6 +64,7 @@
   "dependencies": {
     "commander": "^2.19.0",
     "cosmiconfig": "^5.0.6",
+    "cross-spawn": "^6.0.5",
     "lodash": "^4.17.11",
     "read-pkg-up": "^4.0.0"
   }
