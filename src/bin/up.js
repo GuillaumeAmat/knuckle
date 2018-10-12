@@ -9,7 +9,8 @@ const { printErrorAndExit } = require('../utils/output');
 program
   .command('up')
   .description('Create the configuration files')
-  .action(() => {
+  .option('--no-install', 'Do not install the tools dependencies')
+  .action(command => {
     const configExplorer = cosmiconfig('knuckle');
     const configSearch = configExplorer.searchSync();
 
@@ -32,14 +33,25 @@ program
         writeFile(configFilePath, configContent);
       }
 
-      const toolDependencies = require(path.join(__dirname, '../tools', toolName, 'dependencies'));
-      dependencies.push(...toolDependencies.getDependencies(tools));
+      if (command.install) {
+        const toolDependencies = require(path.join(
+          __dirname,
+          '../tools',
+          toolName,
+          'dependencies',
+        ));
+        dependencies.push(...toolDependencies.getDependencies(tools));
+      }
     }
 
-    const result = spawn.sync('npm', ['install', '-D', ...dependencies], {
-      cwd: process.cwd(),
-      stdio: 'inherit',
-    });
+    if (command.install) {
+      const result = spawn.sync('npm', ['install', '-D', ...dependencies], {
+        cwd: process.cwd(),
+        stdio: 'inherit',
+      });
 
-    process.exit(result.status);
+      process.exit(result.status);
+    } else {
+      process.exit(0);
+    }
   });
