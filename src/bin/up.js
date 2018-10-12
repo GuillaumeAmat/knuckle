@@ -1,10 +1,10 @@
 const program = require('commander');
 const cosmiconfig = require('cosmiconfig');
 const path = require('path');
-const spawn = require('cross-spawn');
 
 const { writeFile } = require('../utils/file');
 const { printErrorAndExit } = require('../utils/output');
+const { install } = require('../utils/packageManager');
 
 program
   .command('up')
@@ -45,10 +45,7 @@ program
     }
 
     if (command.install) {
-      const result = spawn.sync('npm', ['install', '-D', ...dependencies], {
-        cwd: process.cwd(),
-        stdio: 'inherit',
-      });
+      const result = install(dependencies);
 
       process.exit(result.status);
     } else {

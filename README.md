@@ -117,7 +117,7 @@ For exemple, Knuckle's Prettier configuration includes semicolons (which is the 
 }
 ```
 
-Then, `knuckle up` to re-generate the configuration files and your done!
+Then, `knuckle up --no-install` to re-generate the configuration files and your done!
 
 You can see that `semi` is set to `false` in the root `.prettierrc`.
 
