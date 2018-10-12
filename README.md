@@ -15,7 +15,6 @@
 [knuckle-url]: https://github.com/GuillaumeAmat/knuckle
 [eslint-url]: https://eslint.org
 [cosmiconfig-url]: https://github.com/davidtheclark/cosmiconfig
-[commitlint-url]: https://github.com/marionebl/commitlint
 [stylelint-url]: https://github.com/stylelint/stylelint
 [jest-url]: https://github.com/facebook/jest
 
@@ -127,13 +126,13 @@ For now, the available tools are:
 
 - [Prettier](config/prettier)
 - [ESLint](config/eslint)
-- [Husky](config/husky)
-- [Lint-Staged](config/lint-staged)
 - [TSLint](config/tslint)
+- [Commitlint](config/commitlint)
+- [Lint-Staged](config/lint-staged)
+- [Husky](config/husky)
 
 But many others will follow (PRs are welcome by the way ;) ):
 
-- [Commitlint][commitlint-url]
 - [Stylelint][stylelint-url]
 - [Jest][jest-url]
 - Etc.
