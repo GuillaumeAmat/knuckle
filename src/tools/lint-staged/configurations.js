@@ -26,7 +26,7 @@ module.exports = [
       const hasEslintCheck = hasEslint(configuredTools);
       const hasTslintCheck = hasTslint(configuredTools);
       const prettierLinters = {
-        '**/*.{js,jsx,ts,tsx,vue,json,yaml,css,scss,less,html,md,mdx,graphql}': [
+        '**/*.{js,jsx,ts,tsx,vue,json,yaml,css,scss,less,md,mdx,graphql}': [
           `${knuckleCommand} prettier --write`,
           'git add',
         ],

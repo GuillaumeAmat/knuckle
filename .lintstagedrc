@@ -1,5 +1,5 @@
 {
-  "**/*.{js,jsx,ts,tsx,vue,json,yaml,css,scss,less,html,md,mdx,graphql}": [
+  "**/*.{js,jsx,ts,tsx,vue,json,yaml,css,scss,less,md,mdx,graphql}": [
     "npm run knuckle -- prettier --write",
     "git add"
   ],
