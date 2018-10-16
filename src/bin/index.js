@@ -5,6 +5,7 @@ const program = require('commander');
 const { version: knuckleVersion } = require('../../package.json');
 
 require('./add');
+require('./eject');
 require('./remove');
 require('./up');
 

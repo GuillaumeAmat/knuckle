@@ -33,8 +33,27 @@ function install(dependencies) {
   });
 }
 
+function uninstall(dependencies) {
+  let bin = 'npm';
+  let args = ['uninstall', ...dependencies];
+
+  if (isYarnHandledProject()) {
+    bin = 'yarn';
+    args = ['remove', ...dependencies];
+  } else if (isPnpmHandledProject()) {
+    bin = 'pnpm';
+    args = ['uninstall', ...dependencies];
+  }
+
+  return spawn.sync(bin, args, {
+    cwd: process.cwd(),
+    stdio: 'inherit',
+  });
+}
+
 module.exports = {
   install,
   isNpmHandledProject,
   isYarnHandledProject,
+  uninstall,
 };

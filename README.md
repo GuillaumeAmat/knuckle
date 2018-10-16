@@ -205,11 +205,13 @@ More informations in the [Extend configurations](#extend-configurations) section
 
 ### How do I stop using Knuckle?
 
-As Knuckle generates regular configuration files, all you need to do is remove the Knuckle package and its own configuration files:
+Just type:
 
 ```bash
-$ npm uninstall knuckle && rm -rf ./.knuckle*
+$ npx knuckle eject
 ```
+
+As Knuckle generates regular configuration files, the `eject` command only removes the Knuckle package and its own configuration files.
 
 ### Why not to use abstract commands?
 
