@@ -31,7 +31,7 @@ module.exports = [
       }
 
       if (hasCommitlint(configuredTools)) {
-        commitMsgHook = { 'commit-msg': `${knuckleCommand} commitlint -E HUSKY_GIT_PARAMS` };
+        commitMsgHook = { 'commit-msg': `npx commitlint -E HUSKY_GIT_PARAMS` };
       }
 
       return {
