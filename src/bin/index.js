@@ -2,15 +2,18 @@
 
 const program = require('commander');
 
+const { version: knuckleVersion } = require('../../package.json');
+
 require('./add');
 require('./remove');
 require('./up');
-require('./version');
 
 require('../tools/eslint/command');
 require('../tools/lint-staged/command');
 require('../tools/prettier/command');
 require('../tools/tslint/command');
+
+program.version(knuckleVersion, '-v, --version').usage('<command> [options]');
 
 program.parse(process.argv);
 

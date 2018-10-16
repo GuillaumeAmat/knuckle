@@ -41,7 +41,6 @@ Instead, Knuckle does it for you. You only need to:
   - [Configurations](#configurations)
   - [Extend configurations](#extend-configurations)
 - [Available tools](#available-tools)
-  - [Tools versions](#tools-versions)
 - [Badge](#badge)
 - [Frequently Asked Questions](#frequently-asked-questions)
   - [Why generating the configuration files rather than hiding them?](#why-generating-the-configuration-files-rather-than-hiding-them)
@@ -157,15 +156,6 @@ $ npx knuckle --help up
 ```
 
 If you need more explanations about the Knuckle or its usage, feel free to ask questions on the [repository issues][knuckle-url].
-
-### Tools versions
-
-You can easily see the different versions of Knuckle and the tools by using the `version` command:
-
-```bash
-$ npx knuckle version
-$ npx knuckle version eslint
-```
 
 ## Badge
 
