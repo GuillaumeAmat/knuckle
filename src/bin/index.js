@@ -8,6 +8,7 @@ require('./add');
 require('./remove');
 require('./up');
 
+require('../tools/commitlint/command');
 require('../tools/eslint/command');
 require('../tools/lint-staged/command');
 require('../tools/prettier/command');

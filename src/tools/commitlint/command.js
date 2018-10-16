@@ -7,21 +7,23 @@ program
   .command('commitlint [path...]')
   .description('Lint your conventional commits')
   .option(
-    '-e, --edit',
+    '-e, --edit [path]',
     'Read last commit message from the specified file or fallbacks to ./.git/COMMIT_EDITMSG',
   )
-  .option('-E, --env', 'Check message in the file at path given by environment variable value')
+  .option(
+    '-E, --env [variable]',
+    'Check message in the file at path given by environment variable value',
+  )
   .action((targetPath = [], command = undefined) => {
     const args = [...targetPath];
 
     if (command.edit) {
-      args.push('--edit');
+      args.push('--edit', command.edit);
     }
 
     if (command.env) {
-      args.push('--env');
+      args.push('--env', command.env);
     }
-
     const bin = getPathToBin('@commitlint/cli');
 
     const result = spawn.sync(bin, [...args], {
