@@ -1,3 +1,9 @@
+## 0.9.1 (0ctober 18, 2018)
+
+### Bug fixes
+
+- Fix the `add` interactive mode when it is the first launch
+
 ## 0.9.0 (0ctober 18, 2018)
 
 ### Features

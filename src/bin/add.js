@@ -16,11 +16,12 @@ program
     const configSearch = configExplorer.searchSync() || {};
     const configFilePath = configSearch.filepath || path.join(process.cwd(), '.knucklerc');
     const currentConfig = configSearch.config || {};
+    const currentTools = currentConfig.tools || [];
     let newTools = toolNames;
 
     if (newTools.length === 0) {
       const choices = getToolList()
-        .filter(toolName => !currentConfig.tools.includes(toolName))
+        .filter(toolName => !currentTools.includes(toolName))
         .map(toolName => ({ name: toolName }));
 
       if (choices.length === 0) {
@@ -47,7 +48,7 @@ program
 
     const newConfig = {
       ...currentConfig,
-      tools: sortedUniq([...(currentConfig.tools || []), ...newTools].sort()),
+      tools: sortedUniq([...(currentTools || []), ...newTools].sort()),
     };
 
     try {
