@@ -36,11 +36,13 @@ Instead, Knuckle does it for you. You only need to:
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Configurations](#configurations)
   - [Extend configurations](#extend-configurations)
 - [Available tools](#available-tools)
+  - [Help](#help)
 - [Badge](#badge)
 - [Frequently Asked Questions](#frequently-asked-questions)
   - [Why generating the configuration files rather than hiding them?](#why-generating-the-configuration-files-rather-than-hiding-them)
@@ -65,6 +67,8 @@ Then, we tell to Knuckle to handle some tools:
 
 ```bash
 $ npx knuckle add prettier eslint lint-staged husky
+or
+$ npx knuckle add # To get interactive
 ```
 
 Finally, Knuckle generates the related configurations at the root of your project:

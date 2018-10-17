@@ -1,7 +1,7 @@
 const { formatJson } = require('../../utils/file');
 const { hasEslint, hasPrettier, hasTslint } = require('../../utils/hasDependency');
 const loadAndMergeConfig = require('../../utils/loadAndMergeConfig');
-const { knuckleCommand } = require('../../utils/module');
+const { knuckleCommand } = require('../../utils/tool');
 
 module.exports = [
   {

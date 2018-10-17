@@ -65,6 +65,7 @@
     "commander": "^2.19.0",
     "cosmiconfig": "^5.0.6",
     "cross-spawn": "^6.0.5",
+    "inquirer": "^6.2.0",
     "lodash": "^4.17.11",
     "read-pkg-up": "^4.0.0"
   }

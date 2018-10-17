@@ -6,11 +6,6 @@ const { pkg: packageJson } = readPkgUp.sync();
 const isKnuckleInKnuckle = packageJson.name === 'knuckle';
 const knuckleCommand = isKnuckleInKnuckle ? 'npm run knuckle --' : 'npx knuckle';
 
-function getModuleInfo(name) {
-  const modPkgPath = require.resolve(`${name}/package.json`);
-  return require(modPkgPath);
-}
-
 function getPathToBin(name) {
   const modPkgPath = require.resolve(`${name}/package.json`);
   const modPkgDir = path.dirname(modPkgPath);
@@ -19,8 +14,12 @@ function getPathToBin(name) {
   return path.join(modPkgDir, binPath);
 }
 
-function validateModuleList(tools) {
-  const toolsFolders = fs.readdirSync(path.join(__dirname, '../tools'));
+function getToolList() {
+  return fs.readdirSync(path.join(__dirname, '../tools'));
+}
+
+function validateToolList(tools) {
+  const toolsFolders = getToolList();
 
   for (const toolName of tools) {
     if (!toolsFolders.includes(toolName)) {
@@ -30,9 +29,9 @@ function validateModuleList(tools) {
 }
 
 module.exports = {
-  getModuleInfo,
   getPathToBin,
+  getToolList,
   isKnuckleInKnuckle,
   knuckleCommand,
-  validateModuleList,
+  validateToolList,
 };
