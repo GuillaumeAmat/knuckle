@@ -1,3 +1,9 @@
+## 0.9.2 (0ctober 18, 2018)
+
+### Documentation
+
+- Improve the documentation and add a gif demo in the README
+
 ## 0.9.1 (0ctober 18, 2018)
 
 ### Bug fixes

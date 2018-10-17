@@ -20,110 +20,13 @@
 
 # 👊 Knuckle
 
-Knuckle is the link between your source code and your dev tools. It gives you some great configurations and CLI options for the dev tools of your projects, out of the box.
+![Demo](demo.gif)
 
-In other words, you don't need to write and maintain the configurations of your dev tools anymore (eg: [ESLint][eslint-url]). Knuckle does that for you.
+With Knuckle, _Don't duplicate code_ becomes _Don't duplicate configuration_.
 
-Let's say you want to format your code. You probably already use [Prettier][prettier-url] to do that but you had to create your own configuration file.
+It bootstraps for you configurations and dependencies of your projects dev tools. It also removes the pain of upgrading the configurations and versions over time.
 
-Instead, Knuckle does it for you. You only need to:
-
-- Tell to Knuckle which tools you want him to handle
-- Ask him to automatically:
-  - Generate the related configuration files
-  - Install the dependencies
-- And you're done!
-
-## Table of Contents
-
-- [Table of Contents](#table-of-contents)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Configurations](#configurations)
-  - [Extend configurations](#extend-configurations)
-- [Available tools](#available-tools)
-  - [Help](#help)
-- [Badge](#badge)
-- [Frequently Asked Questions](#frequently-asked-questions)
-  - [Why generating the configuration files rather than hiding them?](#why-generating-the-configuration-files-rather-than-hiding-them)
-  - [Why versionning the generated files?](#why-versionning-the-generated-files)
-  - [Where is the .knuckle folder?](#where-is-the-knuckle-folder)
-  - [Can I modify the generated files?](#can-i-modify-the-generated-files)
-  - [How do I stop using Knuckle?](#how-do-i-stop-using-knuckle)
-  - [Why not to use abstract commands?](#why-not-to-use-abstract-commands)
-- [Contributors](#contributors)
-
-## Installation
-
-All the following steps have to only be ran once.
-
-First, we install Knuckle:
-
-```bash
-$ npm install --save-dev knuckle
-```
-
-Then, we tell to Knuckle to handle some tools:
-
-```bash
-$ npx knuckle add prettier eslint lint-staged husky
-or
-$ npx knuckle add # To get interactive
-```
-
-Finally, Knuckle generates the related configurations at the root of your project:
-
-```bash
-$ npx knuckle up
-```
-
-It installs the tools dependencies and generates the related configuration files.
-
-Add the generated configuration files to your versionning system, like before, and your done!
-
-It is really important to `knuckle up` every time you upgrade Knuckle or want to overwrite its configurations.
-
-In the early stages of Knuckle no files were created in your project. It seems handy at first but the big caveat is that your IDE can't see the tools configuration... More informations in the [FAQ section](#frequently-asked-questions).
-
-## Usage
-
-Now that all the configurations are available, all you need to do is to call the tools within Knuckle:
-
-```bash
-$ npx knuckle prettier 'src/**/*.{js,jsx,json}' --write
-```
-
-Of course, you can write your own NPM scripts with the same commands:
-
-```json
-"scripts": {
-  "format": "knuckle prettier 'src/**/*.{js,jsx,json}' --write"
-}
-```
-
-Under the hood, Knuckle calls the tools by adding some options in order to have the best usage of each tool.
-
-### Configurations
-
-The configurations are generated from a base file, located in the `config` directory of Knuckle, and some plugins/configurations related to the dependendencies of your project (eg: React ESLint plugin).
-
-### Extend configurations
-
-If the configuration of a tool does not perfectly suit your needs, you can extend it very easily.
-
-Just create a `.knuckle` folder at the root of your project and put some configuration files in it. Knuckle will detect and apply them over its configurations.
-
-For exemple, Knuckle's Prettier configuration includes semicolons (which is the default Prettier behavior) but maybe you don't want them in your code. All you need to do is to create a Prettier configuration file in a `.knuckle` folder at the root of your project (eg: `.knuckle/.prettierrc`) and to put the following configuration in it:
-
-```json
-{
-  "semi": false
-}
-```
-
-Then, `knuckle up --no-install` to re-generate the configuration files and your done!
-
-You can see that `semi` is set to `false` in the root `.prettierrc`.
+More informations in the [Usage guide](./docs/Usage_guide.md) and the [FAQ](./docs/FAQ.md).
 
 ## Available tools
 
@@ -142,25 +45,6 @@ But many others will follow (PRs are welcome by the way ;) ):
 - [Jest][jest-url]
 - Etc.
 
-They are all available by typing `knuckle`, followed by their own name. But remember to `add` them and `knuckle up` to generate and use the configurations:
-
-```bash
-$ npx knuckle prettier 'src/**/*' --list-different
-$ npx knuckle eslint src
-$ npx knuckle lint-staged
-```
-
-### Help
-
-Use the `--help` option in front of any command:
-
-```bash
-$ npx knuckle --help
-$ npx knuckle --help up
-```
-
-If you need more explanations about the Knuckle or its usage, feel free to ask questions on the [repository issues][knuckle-url].
-
 ## Badge
 
 [![config: knuckle](https://img.shields.io/badge/config-knuckle-ff5c00.svg?style=flat-square)](https://github.com/GuillaumeAmat/knuckle)
@@ -168,60 +52,6 @@ If you need more explanations about the Knuckle or its usage, feel free to ask q
 ```
 [![config: knuckle](https://img.shields.io/badge/config-knuckle-ff5c00.svg?style=flat-square)](https://github.com/GuillaumeAmat/knuckle)
 ```
-
-## Frequently Asked Questions
-
-### Why generating the configuration files rather than hiding them?
-
-At the early stage of the Knuckle conception (0.2.x and earlier), the configuration files were completely hidden from the developer and his project.
-
-The configuration overwrite mechanism was implemented so it felt like a good paradigm: less files for more clarity.
-
-But, the next step came through and a big issue popped: IDE/code editor integration.
-
-Long story short, if the editor can't reach the configuration files, it can't use the dev tools and display their feedbacks.
-
-We studied some options like proposing PR to editors and plugins, or creating our own plugin, but it felt like lost match right away. So we handled that particular case by using the current paradigm: files auto-generation!
-
-It even comes with some benefits after all:
-
-- No black magic
-- Possibility to version the generated files
-- No incomplete configuration files at the root of your project
-
-### Why versionning the generated files?
-
-For the same reasons that make you version your former configuration files.
-
-### Where is the .knuckle folder?
-
-The `.knuckle` folder is used to modify the behavior of Knuckle. In other words, it is not the main purpose of the tool.
-
-So it does not make sense to automatically create it, you have to do it on your own if you want to use it.
-
-### Can I modify the generated files?
-
-Sure! But Knuckle will replace your modifications at the next `knuckle up`...
-
-Instead, use the `.knuckle` folder to set some configuration overwrites. It is the normal way to extend the configurations.
-
-More informations in the [Extend configurations](#extend-configurations) section.
-
-### How do I stop using Knuckle?
-
-As Knuckle generates regular configuration files, all you need to do is remove the Knuckle package and its own configuration files:
-
-```bash
-$ npm uninstall knuckle && rm -rf ./.knuckle*
-```
-
-### Why not to use abstract commands?
-
-`prettier` should be named `format`, `eslint` should be named `lint`, etc. But in the future Prettier, ESLint and the other tools will probably disappear to be replaced by other tools. It happens.
-
-Furthermore, we want to be able to support two (or more) different tools for the same usage at the same time. So how will we call the second one, `knuckle format-2`?
-
-Also, we try to use the same API namings as the tools, to make things easier and non confusing. So it makes sense to have the full signature (name + options).
 
 ## Contributors
 
