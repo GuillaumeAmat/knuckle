@@ -24,8 +24,8 @@ program
     if (command.env) {
       args.push('--env', command.env);
     }
-    const bin = getPathToBin('@commitlint/cli');
 
+    const bin = getPathToBin('@commitlint/cli', 'commitlint');
     const result = spawn.sync(bin, [...args], {
       cwd: process.cwd(),
       stdio: 'inherit',

@@ -6,11 +6,12 @@ const { pkg: packageJson } = readPkgUp.sync();
 const isKnuckleInKnuckle = packageJson.name === 'knuckle';
 const knuckleCommand = isKnuckleInKnuckle ? 'npm run knuckle --' : 'npx knuckle';
 
-function getPathToBin(name) {
-  const modPkgPath = require.resolve(`${name}/package.json`);
+function getPathToBin(moduleName, commandName) {
+  const modPkgPath = require.resolve(`${moduleName}/package.json`);
   const modPkgDir = path.dirname(modPkgPath);
   const { bin } = require(modPkgPath);
-  const binPath = typeof bin === 'string' ? bin : bin[name];
+  const binPath = typeof bin === 'string' ? bin : bin[commandName || moduleName];
+
   return path.join(modPkgDir, binPath);
 }
 
