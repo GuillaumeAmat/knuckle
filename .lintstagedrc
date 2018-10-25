@@ -3,6 +3,6 @@
     "npm run knuckle -- prettier --write",
     "git add"
   ],
-  "**/.*rc": ["npm run knuckle -- prettier --write", "git add"],
+  "**/.!(npm|yarn)*rc": ["npm run knuckle -- prettier --write", "git add"],
   "**/*.{js,jsx}": ["npm run knuckle -- eslint"]
 }

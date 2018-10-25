@@ -30,7 +30,7 @@ module.exports = [
           `${knuckleCommand} prettier --write`,
           'git add',
         ],
-        '**/.*rc': [`${knuckleCommand} prettier --write`, 'git add'],
+        '**/.!(npm|yarn)*rc': [`${knuckleCommand} prettier --write`, 'git add'],
       };
       const eslintLinters = {
         '**/*.{js,jsx}': [`${knuckleCommand} eslint`],
