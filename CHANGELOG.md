@@ -1,3 +1,9 @@
+## 0.10.0 (November 20, 2018)
+
+### features
+
+- Take care of the `*.yml` files in lint-staged.
+
 ## 0.9.3 (0ctober 25, 2018)
 
 ### Bug fixes
