@@ -10,4 +10,4 @@
 
 ## Dependencies
 
-- `husky@1.1`
+- `husky@1.2`

@@ -1,5 +1,5 @@
 function getDependencies() {
-  return ['lint-staged@7.3'];
+  return ['lint-staged@8.1'];
 }
 
 module.exports = {

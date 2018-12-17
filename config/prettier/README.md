@@ -12,4 +12,4 @@
 
 ## Dependencies
 
-- `prettier@1.14`
+- `prettier@1.15`

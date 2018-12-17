@@ -1,10 +1,10 @@
 const { hasJest, hasPrettier, hasReact } = require('../../utils/hasDependency');
 
 function getDependencies(configuredTools) {
-  const dependencies = ['babel-eslint@10.0', 'eslint@5.6'];
+  const dependencies = ['babel-eslint@10.0', 'eslint@5.10'];
 
   if (hasPrettier(configuredTools)) {
-    dependencies.push('eslint-config-prettier@3.1', 'eslint-plugin-prettier@3.0');
+    dependencies.push('eslint-config-prettier@3.3', 'eslint-plugin-prettier@3.0');
   }
 
   if (hasReact(configuredTools)) {

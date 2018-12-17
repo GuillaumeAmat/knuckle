@@ -1,5 +1,5 @@
 function getDependencies() {
-  return ['prettier@1.14'];
+  return ['prettier@1.15'];
 }
 
 module.exports = {
