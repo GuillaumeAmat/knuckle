@@ -1,3 +1,11 @@
+# Changelog
+
+## 0.11.0 (December 17, 2018)
+
+### features
+
+- Upgrade some dependencies (see the [related commit](https://github.com/GuillaumeAmat/knuckle/commit/a77ce1242d410fba246cfdf5d38216ddafbeaf8b)).
+
 ## 0.10.0 (November 20, 2018)
 
 ### features
