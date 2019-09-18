@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const readPkgUp = require('read-pkg-up');
 
-const { pkg: packageJson } = readPkgUp.sync();
+const { package: packageJson } = readPkgUp.sync();
 const isKnuckleInKnuckle = packageJson.name === 'knuckle';
 const knuckleCommand = isKnuckleInKnuckle ? 'npm run knuckle --' : 'npx knuckle';
 
