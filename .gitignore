@@ -16,6 +16,7 @@ dist
 
 # IDE
 .idea
+.vscode
 
 # Unwanted lock file
 package-lock.json
