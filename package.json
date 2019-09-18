@@ -19,7 +19,7 @@
     "test"
   ],
   "engines": {
-    "node": ">=8.9.1"
+    "node": ">=12.10.0"
   },
   "main": "dist/bin/index.js",
   "files": [
