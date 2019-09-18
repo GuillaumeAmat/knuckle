@@ -18,4 +18,4 @@ dist
 .idea
 
 # Unwanted lock file
-yarn.lock
+package-lock.json
