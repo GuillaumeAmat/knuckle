@@ -3,7 +3,7 @@ const loadAndMergeConfig = require('../../utils/loadAndMergeConfig');
 module.exports = [
   {
     filename: 'commitlint.config.js',
-    get: () => {
+    build: () => {
       const config = loadAndMergeConfig(
         'commitlint',
         {},

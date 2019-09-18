@@ -7,12 +7,12 @@ const loadAndMergeConfig = require('../../utils/loadAndMergeConfig');
 module.exports = [
   {
     filename: '.prettierrc',
-    get: () => loadAndMergeConfig('prettier'),
+    build: () => loadAndMergeConfig('prettier'),
     format: config => formatJson(config),
   },
   {
     filename: '.prettierignore',
-    get: () =>
+    build: () =>
       loadAndMergeConfig('prettier', [], {
         searchPlaces: ['.prettierignore'],
         loaders: { noExt: cosmiconfigListLoader },

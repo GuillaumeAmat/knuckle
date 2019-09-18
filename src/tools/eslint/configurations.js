@@ -11,7 +11,7 @@ delete prettierConfig.overrides;
 module.exports = [
   {
     filename: '.eslintrc',
-    get: configuredTools => {
+    build: configuredTools => {
       const config = loadAndMergeConfig('eslint');
       const hasPrettierCheck = hasPrettier(configuredTools);
       const hasJestCheck = hasJest(configuredTools);
@@ -45,7 +45,7 @@ module.exports = [
   },
   {
     filename: '.eslintignore',
-    get: () =>
+    build: () =>
       loadAndMergeConfig('eslint', [], {
         searchPlaces: ['.eslintignore'],
         loaders: { noExt: cosmiconfigListLoader },

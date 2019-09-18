@@ -6,7 +6,7 @@ const { knuckleCommand } = require('../../utils/tool');
 module.exports = [
   {
     filename: '.huskyrc',
-    get: configuredTools => {
+    build: configuredTools => {
       const config = loadAndMergeConfig(
         'lint-staged',
         {},
