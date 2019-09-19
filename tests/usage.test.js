@@ -9,8 +9,7 @@ describe('Usage', () => {
   it('Should print the usage', async () => {
     const command = cmd.create(process.env.npm_node_execpath);
 
-    let response = await command.execute([binFile]);
-
+    const response = await command.execute([binFile]);
     const splittedResponse = response.trim().split(EOL + EOL);
 
     expect(splittedResponse[0]).toMatch(/^Usage:/);
