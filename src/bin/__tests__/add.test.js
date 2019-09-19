@@ -1,10 +1,8 @@
 const fs = require('fs');
-const path = require('path');
 
-const cmd = require('../helpers/tests/cmd');
-const setupTestFolder = require('../helpers/tests/setupTestFolder');
-
-const binScriptPath = path.join(__dirname, '../src/bin/index.js');
+const binScriptPath = require('../../helpers/tests/binScriptPath');
+const cmd = require('../../helpers/tests/cmd');
+const setupTestFolder = require('../../helpers/tests/setupTestFolder');
 
 setupTestFolder();
 
