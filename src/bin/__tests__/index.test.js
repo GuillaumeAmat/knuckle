@@ -4,6 +4,14 @@ const packageJson = require('../../../package.json');
 const binScriptPath = require('../../helpers/tests/binScriptPath');
 const cmd = require('../../helpers/tests/cmd');
 
+function expectUsage(response) {
+  const splittedResponse = response.trim().split(EOL + EOL);
+
+  expect(splittedResponse[0]).toMatch(/^Usage:/);
+  expect(splittedResponse[1]).toMatch(/^Options:/);
+  expect(splittedResponse[2]).toMatch(/^Commands:/);
+}
+
 describe('Version', () => {
   it("Should print Knuckle's version", async () => {
     const command = cmd.create('node');
@@ -20,12 +28,14 @@ describe('Usage', () => {
   it('Should print the usage', async () => {
     const command = cmd.create('node');
 
-    const response = await command.execute([binScriptPath]);
-    const splittedResponse = response.trim().split(EOL + EOL);
+    let response = await command.execute([binScriptPath]);
+    expectUsage(response);
 
-    expect(splittedResponse[0]).toMatch(/^Usage:/);
-    expect(splittedResponse[1]).toMatch(/^Options:/);
-    expect(splittedResponse[2]).toMatch(/^Commands:/);
+    response = await command.execute([binScriptPath, '-h']);
+    expectUsage(response);
+
+    response = await command.execute([binScriptPath, '--help']);
+    expectUsage(response);
   });
 });
 
