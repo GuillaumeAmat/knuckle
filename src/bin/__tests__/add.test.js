@@ -3,6 +3,7 @@ const fs = require('fs');
 const binScriptPath = require('../../helpers/tests/binScriptPath');
 const cmd = require('../../helpers/tests/cmd');
 const setupTestFolder = require('../../helpers/tests/setupTestFolder');
+const { getToolList } = require('../../utils/tool');
 
 setupTestFolder();
 
@@ -56,9 +57,37 @@ describe('Add', () => {
       .create('node')
       .execute([binScriptPath, 'add', 'prettier', 'eslint', 'lint-staged', 'husky']);
 
-    const knuckleRcContent = fs.readFileSync('.knucklerc');
-    const { tools } = JSON.parse(knuckleRcContent);
+    const { tools } = JSON.parse(fs.readFileSync('.knucklerc'));
 
     expect(tools.length).toBe(4);
+
+    // Third call with duplicate tools and new ones
+    await cmd.create('node').execute([binScriptPath, 'add', 'prettier', 'commitlint']);
+
+    const { tools: newTools } = JSON.parse(fs.readFileSync('.knucklerc'));
+
+    expect(newTools.length).toBe(5);
+  });
+
+  it('Should tell if all the tools are handled', async () => {
+    await cmd.create('node').execute([binScriptPath, 'add', ...getToolList()]);
+
+    // With a specified tool...
+    let response = await cmd.create('node').execute([binScriptPath, 'add', 'prettier']);
+
+    expect(response).toMatch(/already handled/);
+
+    // ... And without
+    response = await cmd.create('node').execute([binScriptPath, 'add']);
+
+    expect(response).toMatch(/already handled/);
+  });
+
+  it('Should complain if we ask for non-supported tool', async () => {
+    try {
+      await cmd.create('node').execute([binScriptPath, 'add', 'non-supported-tool']);
+    } catch (err) {
+      expect(err).toMatch(/is not a supported tool/);
+    }
   });
 });

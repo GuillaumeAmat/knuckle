@@ -17,16 +17,17 @@ program
     const configFilePath = configSearch.filepath || path.join(process.cwd(), '.knucklerc');
     const currentConfig = configSearch.config || {};
     const currentTools = currentConfig.tools || [];
+    const toolList = getToolList();
     let newTools = toolNames;
 
+    if (currentTools.length === toolList.length) {
+      printMessageAndExit('All the Knuckle tools are already handled');
+    }
+
     if (newTools.length === 0) {
-      const choices = getToolList()
+      const choices = toolList
         .filter(toolName => !currentTools.includes(toolName))
         .map(toolName => ({ name: toolName }));
-
-      if (choices.length === 0) {
-        printMessageAndExit('All the Knuckle tools are already handled');
-      }
 
       const { toolNames } = await inquirer.prompt([
         {
