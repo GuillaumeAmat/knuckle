@@ -14,7 +14,7 @@ let testFolder;
  * - Before each test: it creates a temporary folder, places the current process in it and creates a `package.json` file.
  * - After each test: it goes back to the Knuckle clone folder and remove the temporary folder and its content.
  */
-function setupTestFolder() {
+function setupPristineTestFolder() {
   beforeEach(async () => {
     testFolder = fs.mkdtempSync(path.join(os.tmpdir(), 'knuckle-'));
     process.chdir(testFolder);
@@ -27,4 +27,4 @@ function setupTestFolder() {
   });
 }
 
-module.exports = setupTestFolder;
+module.exports = setupPristineTestFolder;

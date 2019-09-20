@@ -2,10 +2,10 @@ const fs = require('fs');
 
 const binScriptPath = require('../../helpers/tests/binScriptPath');
 const cmd = require('../../helpers/tests/cmd');
-const setupTestFolder = require('../../helpers/tests/setupTestFolder');
+const setupPristineTestFolder = require('../../helpers/tests/setupPristineTestFolder');
 const { getToolList } = require('../../utils/tool');
 
-setupTestFolder();
+setupPristineTestFolder();
 
 describe('Add', () => {
   it('Should not generate a `.knucklerc` file', async () => {
