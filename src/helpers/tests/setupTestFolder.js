@@ -1,10 +1,3 @@
-/**
- * Knuckle's integration tests needs pristine folders to create fake projects and run its commands.
- * That helper set to callbacks:
- * - Before each test: it creates a temporary folder, places the current process in it and creates a `package.json` file.
- * - After each test: it goes back to the Knuckle clone folder and remove the temporary folder and its content.
- */
-
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -15,7 +8,13 @@ const cmd = require('./cmd');
 const repoFolder = process.cwd();
 let testFolder;
 
-module.exports = function setupTestFolder() {
+/**
+ * Knuckle's integration tests needs pristine folders to create fake projects and run its commands.
+ * That helper set to callbacks:
+ * - Before each test: it creates a temporary folder, places the current process in it and creates a `package.json` file.
+ * - After each test: it goes back to the Knuckle clone folder and remove the temporary folder and its content.
+ */
+function setupTestFolder() {
   beforeEach(async () => {
     testFolder = fs.mkdtempSync(path.join(os.tmpdir(), 'knuckle-'));
     process.chdir(testFolder);
@@ -26,4 +25,6 @@ module.exports = function setupTestFolder() {
     process.chdir(repoFolder);
     rimraf.sync(testFolder);
   });
-};
+}
+
+module.exports = setupTestFolder;
