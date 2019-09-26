@@ -15,6 +15,7 @@ node_modules/
 dist
 
 # Tests
+.nyc_output
 coverage
 
 # IDE

@@ -14,37 +14,31 @@ function expectUsage(response) {
 
 describe('Version', () => {
   it("Should print Knuckle's version", async () => {
-    const command = cmd.create('node');
-
-    let response = await command.execute([binScriptPath, '-v']);
+    let response = await cmd.run('node', [binScriptPath, '-v']);
     expect(response.trim()).toBe(packageJson.version);
 
-    response = await command.execute([binScriptPath, '--version']);
+    response = await cmd.run('node', [binScriptPath, '--version']);
     expect(response.trim()).toBe(packageJson.version);
   });
 });
 
 describe('Usage', () => {
   it('Should print the usage', async () => {
-    const command = cmd.create('node');
-
-    let response = await command.execute([binScriptPath]);
+    let response = await cmd.run('node', [binScriptPath]);
     expectUsage(response);
 
-    response = await command.execute([binScriptPath, '-h']);
+    response = await cmd.run('node', [binScriptPath, '-h']);
     expectUsage(response);
 
-    response = await command.execute([binScriptPath, '--help']);
+    response = await cmd.run('node', [binScriptPath, '--help']);
     expectUsage(response);
   });
 });
 
 describe('Error', () => {
   it('Should print an `unknown option` error', async () => {
-    const command = cmd.create('node');
-
     try {
-      await command.execute([binScriptPath, '--bad-option']);
+      await cmd.run('node', [binScriptPath, '--bad-option']);
     } catch (err) {
       expect(err.trim()).toMatch(/^error: unknown option/);
     }

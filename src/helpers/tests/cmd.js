@@ -11,6 +11,7 @@
 const { constants } = require('os');
 const spawn = require('cross-spawn');
 const concat = require('concat-stream');
+const projectPath = require('./projectPath');
 const PATH = process.env.PATH;
 
 /**
@@ -141,15 +142,34 @@ function executeWithInput(command, args = [], inputs = [], opts = {}) {
   return promise;
 }
 
-module.exports = {
-  createProcess,
-  create: command => {
-    const fn = (...args) => executeWithInput(command, ...args);
+/**
+ * Main entry point to use this helper
+ * Wraps the `command` with `nyc` to collect the coverage
+ * @param {string} command Command to execute
+ * @param {Array} args Arguments to the command
+ * @param {Array} inputs (Optional) Array of inputs (user responses)
+ * @param {Object} opts (optional) Environment variables
+ */
+function run(command, args = [], inputs = [], opts = {}) {
+  const nycArgs = ['--no-clean', `--cwd=${projectPath}`];
 
-    return {
-      execute: fn,
-    };
-  },
+  return executeWithInput('nyc', [...nycArgs, command, ...args], inputs, opts);
+}
+
+/**
+ * Same as `run`, without the `nyc` watch
+ * @param {string} command Command to execute
+ * @param {Array} args Arguments to the command
+ * @param {Array} inputs (Optional) Array of inputs (user responses)
+ * @param {Object} opts (optional) Environment variables
+ */
+function runWithoutNyc(command, args = [], inputs = [], opts = {}) {
+  return executeWithInput(command, args, inputs, opts);
+}
+
+module.exports = {
+  run,
+  runWithoutNyc,
   DOWN: '\x1B\x5B\x42',
   UP: '\x1B\x5B\x41',
   ENTER: '\x0D',

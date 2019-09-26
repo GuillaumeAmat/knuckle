@@ -18,7 +18,7 @@ function setupPristineTestFolder() {
   beforeEach(async () => {
     testFolder = fs.mkdtempSync(path.join(os.tmpdir(), 'knuckle-'));
     process.chdir(testFolder);
-    await cmd.create('npm').execute(['init', '-y']);
+    await cmd.runWithoutNyc('npm', ['init', '-y']);
   });
 
   afterEach(() => {
