@@ -1,14 +1,13 @@
-const fs = require('fs');
-
 const binScriptPath = require('../../helpers/tests/binScriptPath');
 const cmd = require('../../helpers/tests/cmd');
+const getKnuckleConfig = require('../../helpers/tests/getKnuckleConfig');
 const setupPristineTestFolder = require('../../helpers/tests/setupPristineTestFolder');
 const { getToolList } = require('../../utils/tool');
 
 setupPristineTestFolder();
 
-describe('Add', () => {
-  it('Should not generate a `.knucklerc` file', async () => {
+describe('ADD', () => {
+  it('should not generate a config file', async () => {
     await cmd.run(
       'node',
       [binScriptPath, 'add'],
@@ -17,12 +16,12 @@ describe('Add', () => {
       [cmd.ENTER],
     );
 
-    const knuckleRcExists = fs.existsSync('.knucklerc');
+    const configFile = getKnuckleConfig();
 
-    expect(knuckleRcExists).toBe(false);
+    expect(configFile).toBeNull();
   });
 
-  it('Should add tools interactively', async () => {
+  it('should add tools interactively', async () => {
     await cmd.run(
       'node',
       [binScriptPath, 'add'],
@@ -31,59 +30,55 @@ describe('Add', () => {
       [cmd.SPACE, cmd.DOWN, cmd.SPACE, cmd.DOWN, cmd.SPACE, cmd.DOWN, cmd.ENTER],
     );
 
-    const knuckleRcContent = fs.readFileSync('.knucklerc');
-    const { tools } = JSON.parse(knuckleRcContent);
+    const { config } = getKnuckleConfig();
 
-    expect(tools.length).toBe(3);
+    expect(config.tools.length).toBe(3);
   });
 
-  it('Should add tools with one command', async () => {
+  it('should add tools with one command', async () => {
     await cmd.run('node', [binScriptPath, 'add', 'prettier', 'eslint', 'lint-staged', 'husky']);
 
-    const knuckleRcContent = fs.readFileSync('.knucklerc');
-    const { tools } = JSON.parse(knuckleRcContent);
+    const { config } = getKnuckleConfig();
 
-    expect(tools.length).toBe(4);
+    expect(config.tools.length).toBe(4);
   });
 
-  it('Should not duplicate tools', async () => {
+  it('should not duplicate tools', async () => {
     // First call
     await cmd.run('node', [binScriptPath, 'add', 'prettier', 'eslint', 'lint-staged', 'husky']);
 
     // Second consecutive call with the same tools
     await cmd.run('node', [binScriptPath, 'add', 'prettier', 'eslint', 'lint-staged', 'husky']);
-
-    const { tools } = JSON.parse(fs.readFileSync('.knucklerc'));
-
-    expect(tools.length).toBe(4);
+    const { config } = getKnuckleConfig();
+    expect(config.tools.length).toBe(4);
 
     // Third call with duplicate tools and new ones
     await cmd.run('node', [binScriptPath, 'add', 'prettier', 'commitlint']);
-
-    const { tools: newTools } = JSON.parse(fs.readFileSync('.knucklerc'));
-
-    expect(newTools.length).toBe(5);
+    const { config: newConfig } = getKnuckleConfig();
+    expect(newConfig.tools.length).toBe(5);
   });
 
-  it('Should tell if all the tools are handled', async () => {
+  it('should tell if all the tools are handled', async () => {
     await cmd.run('node', [binScriptPath, 'add', ...getToolList()]);
 
     // With a specified tool...
     let response = await cmd.run('node', [binScriptPath, 'add', 'prettier']);
 
-    expect(response).toMatch(/already handled/);
+    expect(response).toMatchSnapshot();
 
     // ... And without
     response = await cmd.run('node', [binScriptPath, 'add']);
 
-    expect(response).toMatch(/already handled/);
+    expect(response).toMatchSnapshot();
   });
 
-  it('Should complain if we ask for non-supported tool', async () => {
+  it('should complain if we ask for non-supported tool', async () => {
     try {
       await cmd.run('node', [binScriptPath, 'add', 'non-supported-tool']);
     } catch (err) {
-      expect(err).toMatch(/is not a supported tool/);
+      expect(err).toMatchSnapshot();
     }
+
+    expect.hasAssertions();
   });
 });

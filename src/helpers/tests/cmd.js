@@ -151,7 +151,7 @@ function executeWithInput(command, args = [], inputs = [], opts = {}) {
  * @param {Object} opts (optional) Environment variables
  */
 function run(command, args = [], inputs = [], opts = {}) {
-  const nycArgs = ['--no-clean', `--cwd=${projectPath}`];
+  const nycArgs = ['--reporter=lcov', '--no-clean', `--cwd=${projectPath}`];
 
   return executeWithInput('nyc', [...nycArgs, command, ...args], inputs, opts);
 }
