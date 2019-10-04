@@ -6,7 +6,7 @@ const setupPristineTestFolder = require('../../helpers/tests/setupPristineTestFo
 setupPristineTestFolder();
 
 describe('REMOVE', () => {
-  it('should fail if there are no tools in the input', async () => {
+  it('should fail if there are no tools in the input', async done => {
     try {
       await cmd.run('node', [binScriptPath, 'remove']);
     } catch (err) {
@@ -14,9 +14,11 @@ describe('REMOVE', () => {
     }
 
     expect.hasAssertions();
+
+    done();
   });
 
-  it('should not fail if no tools are configured', async () => {
+  it('should not fail if no tools are configured', async done => {
     let hasThrown = false;
 
     try {
@@ -26,9 +28,11 @@ describe('REMOVE', () => {
     }
 
     expect(hasThrown).toBe(false);
+
+    done();
   });
 
-  it('should remove tools', async () => {
+  it('should remove tools', async done => {
     await cmd.run('node', [binScriptPath, 'add', 'prettier', 'eslint', 'lint-staged', 'husky']);
     let config = getKnuckleConfig().config;
     expect(config.tools.length).toBe(4);
@@ -36,5 +40,7 @@ describe('REMOVE', () => {
     await cmd.run('node', [binScriptPath, 'remove', 'eslint']);
     config = getKnuckleConfig().config;
     expect(config.tools.length).toBe(3);
+
+    done();
   });
 });

@@ -14,9 +14,21 @@ program
     const configExplorer = cosmiconfig('knuckle');
     const configSearch = configExplorer.searchSync();
 
-    if (!configSearch || !configSearch.config.tools) {
+    if (!configSearch) {
       printErrorAndExit(
         'Unable to find the Knuckle configuration. Did you `knuckle add` some tools?',
+      );
+    }
+
+    if (!configSearch.config.tools) {
+      printErrorAndExit(
+        'Unable to find the `tools` section in the Knuckle configuration. Did you `knuckle add` some tools?',
+      );
+    }
+
+    if (configSearch.config.tools.length === 0) {
+      printErrorAndExit(
+        'The tools list is empty in the Knuckle configuration. Please `knuckle add` some tools.',
       );
     }
 
@@ -45,9 +57,14 @@ program
     }
 
     if (command.install) {
-      const result = install(dependencies);
+      const output = install(dependencies);
 
-      process.exit(result.status);
+      /* istanbul ignore else */
+      if (process.env.NODE_ENV === 'test') {
+        process.exit(0);
+      } else {
+        process.exit(output.status);
+      }
     } else {
       process.exit(0);
     }

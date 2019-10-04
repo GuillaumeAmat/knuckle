@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UP should create the tools configurations and install the dependencies with \`npm\` (by default) 1`] = `
+"INSTALL COMMAND OUTPUT:
+npm
+[
+  \\"install\\",
+  \\"-D\\",
+  \\"babel-eslint@10.0\\",
+  \\"eslint@5.10\\",
+  \\"eslint-config-prettier@3.3\\",
+  \\"eslint-plugin-prettier@3.0\\",
+  \\"prettier@1.15\\"
+]
+"
+`;
+
+exports[`UP should create the tools configurations and install the dependencies with \`pnpm\` 1`] = `
+"INSTALL COMMAND OUTPUT:
+pnpm
+[
+  \\"install\\",
+  \\"-D\\",
+  \\"babel-eslint@10.0\\",
+  \\"eslint@5.10\\",
+  \\"eslint-config-prettier@3.3\\",
+  \\"eslint-plugin-prettier@3.0\\",
+  \\"prettier@1.15\\"
+]
+"
+`;
+
+exports[`UP should create the tools configurations and install the dependencies with \`yarn\` 1`] = `
+"INSTALL COMMAND OUTPUT:
+yarn
+[
+  \\"add\\",
+  \\"-D\\",
+  \\"babel-eslint@10.0\\",
+  \\"eslint@5.10\\",
+  \\"eslint-config-prettier@3.3\\",
+  \\"eslint-plugin-prettier@3.0\\",
+  \\"prettier@1.15\\"
+]
+"
+`;
+
+exports[`UP should fail if there is no \`tools\` attribute in the configuration file 1`] = `
+"Unable to find the \`tools\` section in the Knuckle configuration. Did you \`knuckle add\` some tools?
+"
+`;
+
+exports[`UP should fail if there is no configuration file 1`] = `
+"Unable to find the Knuckle configuration. Did you \`knuckle add\` some tools?
+"
+`;
+
+exports[`UP should fail if there is no configured tools 1`] = `
+"The tools list is empty in the Knuckle configuration. Please \`knuckle add\` some tools.
+"
+`;

@@ -1,11 +1,9 @@
 const fs = require('fs');
 const spawn = require('cross-spawn');
 
-const cwdFiles = fs.readdirSync(process.cwd());
+const { printMessage } = require('../utils/output');
 
-function isNpmHandledProject() {
-  return cwdFiles.includes('package-lock.json');
-}
+const cwdFiles = fs.readdirSync(process.cwd());
 
 function isPnpmHandledProject() {
   return cwdFiles.includes('shrinkwrap.yaml');
@@ -27,14 +25,21 @@ function install(dependencies) {
     args = ['install', '-D', ...dependencies];
   }
 
-  return spawn.sync(bin, args, {
-    cwd: process.cwd(),
-    stdio: 'inherit',
-  });
+  /* istanbul ignore else */
+  if (process.env.NODE_ENV === 'test') {
+    printMessage('INSTALL COMMAND OUTPUT:');
+    printMessage(bin);
+    printMessage(JSON.stringify(args, null, 2));
+    return;
+  } else {
+    return spawn.sync(bin, args, {
+      cwd: process.cwd(),
+      stdio: 'inherit',
+    });
+  }
 }
 
 module.exports = {
   install,
-  isNpmHandledProject,
   isYarnHandledProject,
 };

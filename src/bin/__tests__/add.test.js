@@ -7,7 +7,7 @@ const { getToolList } = require('../../utils/tool');
 setupPristineTestFolder();
 
 describe('ADD', () => {
-  it('should not generate a config file', async () => {
+  it('should not generate a config file', async done => {
     await cmd.run(
       'node',
       [binScriptPath, 'add'],
@@ -19,9 +19,11 @@ describe('ADD', () => {
     const configFile = getKnuckleConfig();
 
     expect(configFile).toBeNull();
+
+    done();
   });
 
-  it('should add tools interactively', async () => {
+  it('should add tools interactively', async done => {
     await cmd.run(
       'node',
       [binScriptPath, 'add'],
@@ -33,17 +35,21 @@ describe('ADD', () => {
     const { config } = getKnuckleConfig();
 
     expect(config.tools.length).toBe(3);
+
+    done();
   });
 
-  it('should add tools with one command', async () => {
+  it('should add tools with one command', async done => {
     await cmd.run('node', [binScriptPath, 'add', 'prettier', 'eslint', 'lint-staged', 'husky']);
 
     const { config } = getKnuckleConfig();
 
     expect(config.tools.length).toBe(4);
+
+    done();
   });
 
-  it('should not duplicate tools', async () => {
+  it('should not duplicate tools', async done => {
     // First call
     await cmd.run('node', [binScriptPath, 'add', 'prettier', 'eslint', 'lint-staged', 'husky']);
 
@@ -56,9 +62,11 @@ describe('ADD', () => {
     await cmd.run('node', [binScriptPath, 'add', 'prettier', 'commitlint']);
     const { config: newConfig } = getKnuckleConfig();
     expect(newConfig.tools.length).toBe(5);
+
+    done();
   });
 
-  it('should tell if all the tools are handled', async () => {
+  it('should tell if all the tools are handled', async done => {
     await cmd.run('node', [binScriptPath, 'add', ...getToolList()]);
 
     // With a specified tool...
@@ -70,9 +78,11 @@ describe('ADD', () => {
     response = await cmd.run('node', [binScriptPath, 'add']);
 
     expect(response).toMatchSnapshot();
+
+    done();
   });
 
-  it('should complain if we ask for non-supported tool', async () => {
+  it('should complain if we ask for non-supported tool', async done => {
     try {
       await cmd.run('node', [binScriptPath, 'add', 'non-supported-tool']);
     } catch (err) {
@@ -80,5 +90,7 @@ describe('ADD', () => {
     }
 
     expect.hasAssertions();
+
+    done();
   });
 });
