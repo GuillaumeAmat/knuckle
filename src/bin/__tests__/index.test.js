@@ -37,6 +37,8 @@ describe('Error', () => {
       expect(err.trim()).toMatchSnapshot();
     }
 
+    expect.hasAssertions();
+
     done();
   });
 });
