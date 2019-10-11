@@ -1,9 +1,12 @@
+[![Build][build-image]][build-url]
 [![License][license-image]][license-url]
 [![NPM version][npm-version-image]][npm-version-url]
 [![All Contributors][all-contributors-image]](#contributors)
 [![code style: prettier][prettier-image]][prettier-url]
 [![config: knuckle][knuckle-image]][knuckle-url]
 
+[build-image]: https://img.shields.io/travis/GuillaumeAmat/knuckle.svg?style=flat-square
+[build-url]: https://travis-ci.org/GuillaumeAmat/knuckle
 [license-image]: https://img.shields.io/github/license/GuillaumeAmat/knuckle.svg?style=flat-square
 [license-url]: https://github.com/GuillaumeAmat/knuckle/blob/master/LICENSE
 [npm-version-image]: https://img.shields.io/npm/v/knuckle.svg?style=flat-square&colorB=yellow
