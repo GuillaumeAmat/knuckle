@@ -1,9 +1,9 @@
 {
   "name": "knuckle",
   "version": "0.11.0",
-  "description": "Front end script",
+  "description": "Project configuration handler, without efforts",
   "license": "MIT",
-  "author": "",
+  "author": "Guillaume AMAT <guillaume@amat.io>",
   "homepage": "https://github.com/GuillaumeAmat/knuckle#readme",
   "repository": {
     "type": "git",
@@ -21,11 +21,11 @@
   "engines": {
     "node": ">=12.10.0"
   },
-  "main": "dist/bin/index.js",
   "files": [
     "config",
     "dist"
   ],
+  "main": "dist/bin/index.js",
   "bin": {
     "knuckle": "dist/bin/index.js"
   },
