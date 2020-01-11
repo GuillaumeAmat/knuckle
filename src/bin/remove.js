@@ -1,5 +1,5 @@
 const program = require('commander');
-const cosmiconfig = require('cosmiconfig');
+const { cosmiconfigSync } = require('cosmiconfig');
 const difference = require('lodash/difference');
 const sortedUniq = require('lodash/sortedUniq');
 
@@ -14,8 +14,8 @@ program
   .command('remove <toolname> [toolname...]')
   .description('Tell to Knuckle to not handle those tools anymore')
   .action((toolName, toolNames = []) => {
-    const configExplorer = cosmiconfig('knuckle');
-    const configSearch = configExplorer.searchSync();
+    const configExplorer = cosmiconfigSync('knuckle');
+    const configSearch = configExplorer.search();
 
     if (!configSearch || !configSearch.config.tools) {
       process.exit(0);

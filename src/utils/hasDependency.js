@@ -5,7 +5,7 @@ const has = require('lodash/has');
 // https://github.com/sindresorhus/read-pkg-up
 
 // Get client package.json
-const { package: packageJson } = readPkgUp.sync();
+const { packageJson } = readPkgUp.sync();
 
 // Check if exists in package.json
 const hasPkgProp = propName => has(packageJson, propName);

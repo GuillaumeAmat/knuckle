@@ -58,12 +58,21 @@ But many others will follow (PRs are welcome by the way ;) ):
 
 ## Contributors
 
-Thanks goes to these people :
+Thanks goes to these people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/31624379?v=4" width="100px;"/><br /><sub><b>François Rosato</b></sub>](https://github.com/frosato-ekino)<br />[🐛](https://github.com/knuckle/knuckle/issues?q=author%3Afrosato-ekino "Bug reports") [💻](https://github.com/knuckle/knuckle/commits?author=frosato-ekino "Code") [📖](https://github.com/knuckle/knuckle/commits?author=frosato-ekino "Documentation") [💡](#example-frosato-ekino "Examples") [🤔](#ideas-frosato-ekino "Ideas, Planning, & Feedback") [👀](#review-frosato-ekino "Reviewed Pull Requests") [⚠️](https://github.com/knuckle/knuckle/commits?author=frosato-ekino "Tests") [🔧](#tool-frosato-ekino "Tools") [✅](#tutorial-frosato-ekino "Tutorials") | [<img src="https://avatars3.githubusercontent.com/u/1179174?v=4" width="100px;"/><br /><sub><b>Guillaume AMAT</b></sub>](https://github.com/GuillaumeAmat)<br />[🐛](https://github.com/knuckle/knuckle/issues?q=author%3AGuillaumeAmat "Bug reports") [💻](https://github.com/knuckle/knuckle/commits?author=GuillaumeAmat "Code") [📖](https://github.com/knuckle/knuckle/commits?author=GuillaumeAmat "Documentation") [💡](#example-GuillaumeAmat "Examples") [🤔](#ideas-GuillaumeAmat "Ideas, Planning, & Feedback") [📦](#platform-GuillaumeAmat "Packaging/porting to new platform") [👀](#review-GuillaumeAmat "Reviewed Pull Requests") [📢](#talk-GuillaumeAmat "Talks") [⚠️](https://github.com/knuckle/knuckle/commits?author=GuillaumeAmat "Tests") [🔧](#tool-GuillaumeAmat "Tools") [✅](#tutorial-GuillaumeAmat "Tutorials") | [<img src="https://avatars1.githubusercontent.com/u/6979207?v=4" width="100px;"/><br /><sub><b>Julien Viala</b></sub>](https://github.com/mr-wildcard)<br />[🤔](#ideas-mr-wildcard "Ideas, Planning, & Feedback") |
-| :---: | :---: | :---: |
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/frosato-ekino"><img src="https://avatars3.githubusercontent.com/u/31624379?v=4" width="100px;" alt=""/><br /><sub><b>François Rosato</b></sub></a><br /><a href="https://github.com/knuckle/knuckle/issues?q=author%3Afrosato-ekino" title="Bug reports">🐛</a> <a href="https://github.com/knuckle/knuckle/commits?author=frosato-ekino" title="Code">💻</a> <a href="https://github.com/knuckle/knuckle/commits?author=frosato-ekino" title="Documentation">📖</a> <a href="#example-frosato-ekino" title="Examples">💡</a> <a href="#ideas-frosato-ekino" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/knuckle/knuckle/pulls?q=is%3Apr+reviewed-by%3Afrosato-ekino" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/knuckle/knuckle/commits?author=frosato-ekino" title="Tests">⚠️</a> <a href="#tool-frosato-ekino" title="Tools">🔧</a> <a href="#tutorial-frosato-ekino" title="Tutorials">✅</a></td>
+    <td align="center"><a href="https://github.com/GuillaumeAmat"><img src="https://avatars3.githubusercontent.com/u/1179174?v=4" width="100px;" alt=""/><br /><sub><b>Guillaume AMAT</b></sub></a><br /><a href="https://github.com/knuckle/knuckle/issues?q=author%3AGuillaumeAmat" title="Bug reports">🐛</a> <a href="https://github.com/knuckle/knuckle/commits?author=GuillaumeAmat" title="Code">💻</a> <a href="https://github.com/knuckle/knuckle/commits?author=GuillaumeAmat" title="Documentation">📖</a> <a href="#example-GuillaumeAmat" title="Examples">💡</a> <a href="#ideas-GuillaumeAmat" title="Ideas, Planning, & Feedback">🤔</a> <a href="#platform-GuillaumeAmat" title="Packaging/porting to new platform">📦</a> <a href="https://github.com/knuckle/knuckle/pulls?q=is%3Apr+reviewed-by%3AGuillaumeAmat" title="Reviewed Pull Requests">👀</a> <a href="#talk-GuillaumeAmat" title="Talks">📢</a> <a href="https://github.com/knuckle/knuckle/commits?author=GuillaumeAmat" title="Tests">⚠️</a> <a href="#tool-GuillaumeAmat" title="Tools">🔧</a> <a href="#tutorial-GuillaumeAmat" title="Tutorials">✅</a></td>
+    <td align="center"><a href="https://github.com/mr-wildcard"><img src="https://avatars1.githubusercontent.com/u/6979207?v=4" width="100px;" alt=""/><br /><sub><b>Julien Viala</b></sub></a><br /><a href="#ideas-mr-wildcard" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 

@@ -11,7 +11,7 @@
     "sourceType": "module"
   },
   "parser": "babel-eslint",
-  "plugins": [],
+  "plugins": ["jest"],
   "rules": {
     "no-case-declarations": "off"
   }

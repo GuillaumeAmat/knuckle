@@ -1,5 +1,5 @@
 const program = require('commander');
-const cosmiconfig = require('cosmiconfig');
+const { cosmiconfigSync } = require('cosmiconfig');
 const path = require('path');
 
 const { writeFile } = require('../utils/file');
@@ -11,8 +11,8 @@ program
   .description('Create the configuration files')
   .option('--no-install', 'Do not install the tools dependencies')
   .action(command => {
-    const configExplorer = cosmiconfig('knuckle');
-    const configSearch = configExplorer.searchSync();
+    const configExplorer = cosmiconfigSync('knuckle');
+    const configSearch = configExplorer.search();
 
     if (!configSearch) {
       printErrorAndExit(

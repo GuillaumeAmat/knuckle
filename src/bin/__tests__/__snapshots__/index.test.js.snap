@@ -11,11 +11,14 @@ Options:
 
 Commands:
   add [toolname...]                Ask Knuckle to handle new tools
-  eslint [options] [path...]       An AST-based pattern checker for JavaScript
+  eslint [options] [path...]       An AST-based pattern checker for
+                                   JavaScript
   lint-staged [options] [path...]  Lint files staged by git
   prettier [options] [path...]     Prettier is an opinionated code formatter
-  tslint [options] [path...]       An extensible linter for the TypeScript language
-  remove <toolname> [toolname...]  Tell to Knuckle to not handle those tools anymore
+  tslint [options] [path...]       An extensible linter for the TypeScript
+                                   language
+  remove <toolname> [toolname...]  Tell to Knuckle to not handle those tools
+                                   anymore
   up [options]                     Create the configuration files
   commitlint [options] [path...]   Lint your conventional commits
 "
@@ -30,11 +33,14 @@ Options:
 
 Commands:
   add [toolname...]                Ask Knuckle to handle new tools
-  eslint [options] [path...]       An AST-based pattern checker for JavaScript
+  eslint [options] [path...]       An AST-based pattern checker for
+                                   JavaScript
   lint-staged [options] [path...]  Lint files staged by git
   prettier [options] [path...]     Prettier is an opinionated code formatter
-  tslint [options] [path...]       An extensible linter for the TypeScript language
-  remove <toolname> [toolname...]  Tell to Knuckle to not handle those tools anymore
+  tslint [options] [path...]       An extensible linter for the TypeScript
+                                   language
+  remove <toolname> [toolname...]  Tell to Knuckle to not handle those tools
+                                   anymore
   up [options]                     Create the configuration files
   commitlint [options] [path...]   Lint your conventional commits
 "
@@ -49,11 +55,14 @@ Options:
 
 Commands:
   add [toolname...]                Ask Knuckle to handle new tools
-  eslint [options] [path...]       An AST-based pattern checker for JavaScript
+  eslint [options] [path...]       An AST-based pattern checker for
+                                   JavaScript
   lint-staged [options] [path...]  Lint files staged by git
   prettier [options] [path...]     Prettier is an opinionated code formatter
-  tslint [options] [path...]       An extensible linter for the TypeScript language
-  remove <toolname> [toolname...]  Tell to Knuckle to not handle those tools anymore
+  tslint [options] [path...]       An extensible linter for the TypeScript
+                                   language
+  remove <toolname> [toolname...]  Tell to Knuckle to not handle those tools
+                                   anymore
   up [options]                     Create the configuration files
   commitlint [options] [path...]   Lint your conventional commits
 "

@@ -1,5 +1,5 @@
 const program = require('commander');
-const cosmiconfig = require('cosmiconfig');
+const { cosmiconfigSync } = require('cosmiconfig');
 const inquirer = require('inquirer');
 const sortedUniq = require('lodash/sortedUniq');
 const path = require('path');
@@ -12,8 +12,8 @@ program
   .command('add [toolname...]')
   .description('Ask Knuckle to handle new tools')
   .action(async (toolNames = []) => {
-    const configExplorer = cosmiconfig('knuckle');
-    const configSearch = configExplorer.searchSync() || {};
+    const configExplorer = cosmiconfigSync('knuckle');
+    const configSearch = configExplorer.search() || {};
     const configFilePath = configSearch.filepath || path.join(process.cwd(), '.knucklerc');
     const currentConfig = configSearch.config || {};
     const currentTools = currentConfig.tools || [];
