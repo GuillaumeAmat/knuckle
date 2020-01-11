@@ -27,7 +27,7 @@ module.exports = [
         ].filter(Boolean),
         env: {
           ...config.env,
-          ...(hasJestCheck && { jest: { global: true } }),
+          ...(hasJestCheck && { jest: true }),
         },
         plugins: [
           ...config.plugins,
