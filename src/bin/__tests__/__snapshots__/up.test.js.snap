@@ -7,10 +7,10 @@ npm
   \\"install\\",
   \\"-D\\",
   \\"babel-eslint@10.0\\",
-  \\"eslint@5.10\\",
-  \\"eslint-config-prettier@3.3\\",
-  \\"eslint-plugin-prettier@3.0\\",
-  \\"prettier@1.15\\"
+  \\"eslint@6.8\\",
+  \\"eslint-config-prettier@6.9\\",
+  \\"eslint-plugin-prettier@3.1\\",
+  \\"prettier@1.19\\"
 ]
 "
 `;
@@ -22,10 +22,10 @@ pnpm
   \\"install\\",
   \\"-D\\",
   \\"babel-eslint@10.0\\",
-  \\"eslint@5.10\\",
-  \\"eslint-config-prettier@3.3\\",
-  \\"eslint-plugin-prettier@3.0\\",
-  \\"prettier@1.15\\"
+  \\"eslint@6.8\\",
+  \\"eslint-config-prettier@6.9\\",
+  \\"eslint-plugin-prettier@3.1\\",
+  \\"prettier@1.19\\"
 ]
 "
 `;
@@ -37,10 +37,10 @@ yarn
   \\"add\\",
   \\"-D\\",
   \\"babel-eslint@10.0\\",
-  \\"eslint@5.10\\",
-  \\"eslint-config-prettier@3.3\\",
-  \\"eslint-plugin-prettier@3.0\\",
-  \\"prettier@1.15\\"
+  \\"eslint@6.8\\",
+  \\"eslint-config-prettier@6.9\\",
+  \\"eslint-plugin-prettier@3.1\\",
+  \\"prettier@1.19\\"
 ]
 "
 `;
