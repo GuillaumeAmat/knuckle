@@ -1,8 +1,9 @@
+[prettier-url]: https://prettier.io
+[knuckle-issues-url]: https://github.com/GuillaumeAmat/knuckle/issues
+
 # Usage guide
 
 Knuckle is the link between your source code and your dev tools. It gives you some great configurations and CLI options for the dev tools of your projects, out of the box.
-
-In other words, you don't need to write and maintain the configurations of your dev tools anymore (eg: [ESLint][eslint-url]). Knuckle does that for you.
 
 Let's say you want to format your code. You probably already use [Prettier][prettier-url] to do that but you had to create your own configuration file.
 
@@ -104,4 +105,4 @@ $ npx knuckle --help
 $ npx knuckle --help up
 ```
 
-If you need more explanations about the Knuckle or its usage, feel free to ask questions on the [repository issues][knuckle-url].
+If you need more explanations about the Knuckle or its usage, feel free to ask questions on the [repository issues][knuckle-issues-url].
