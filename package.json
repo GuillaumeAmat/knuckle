@@ -63,7 +63,7 @@
     "lint-staged": "9.5",
     "nyc": "^14.1.1",
     "opener": "^1.5.1",
-    "prettier": "1.15",
+    "prettier": "1.19",
     "rimraf": "^3.0.0"
   },
   "dependencies": {

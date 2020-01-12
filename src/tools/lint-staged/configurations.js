@@ -1,3 +1,4 @@
+const getSupportedExtensions = require('../prettier/getSupportedExtensions');
 const { formatJson } = require('../../utils/file');
 const { hasEslint, hasPrettier, hasTslint } = require('../../utils/hasDependency');
 const loadAndMergeConfig = require('../../utils/loadAndMergeConfig');
@@ -26,7 +27,7 @@ module.exports = [
       const hasEslintCheck = hasEslint(configuredTools);
       const hasTslintCheck = hasTslint(configuredTools);
       const prettierLinters = {
-        '**/*.{js,jsx,ts,tsx,vue,json,yml,yaml,css,scss,less,md,mdx,graphql}': [
+        [`**/*{${getSupportedExtensions().join(',')}}`]: [
           `${knuckleCommand} prettier --write`,
           'git add',
         ],

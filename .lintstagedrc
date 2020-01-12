@@ -1,5 +1,5 @@
 {
-  "**/*.{js,jsx,ts,tsx,vue,json,yml,yaml,css,scss,less,md,mdx,graphql}": [
+  "**/*{.js,._js,.bones,.es,.es6,.frag,.gs,.jake,.jsb,.jscad,.jsfl,.jsm,.jss,.mjs,.njs,.pac,.sjs,.ssjs,.xsjs,.xsjslib,.js.flow,.jsx,.ts,.tsx,.json,.avsc,.geojson,.gltf,.JSON-tmLanguage,.jsonl,.tfstate,.tfstate.backup,.topojson,.webapp,.webmanifest,.sublime-build,.sublime-commands,.sublime-completions,.sublime-keymap,.sublime-macro,.sublime-menu,.sublime-mousemap,.sublime-project,.sublime-settings,.sublime-theme,.sublime-workspace,.sublime_metrics,.sublime_session,.json5,.css,.pcss,.postcss,.less,.scss,.graphql,.gql,.md,.markdown,.mdown,.mdwn,.mkd,.mkdn,.mkdown,.ronn,.workbook,.mdx,.component.html,.html,.htm,.html.hl,.inc,.st,.xht,.xhtml,.vue,.yml,.mir,.reek,.rviz,.sublime-syntax,.syntax,.yaml,.yaml-tmlanguage,.yml.mysql}": [
     "yarn knuckle prettier --write",
     "git add"
   ],
