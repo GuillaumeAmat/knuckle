@@ -1,14 +1,14 @@
 const { hasPrettier, hasReact } = require('../../utils/hasDependency');
 
 function getDependencies(configuredTools) {
-  const dependencies = ['tslint@5.11'];
+  const dependencies = ['tslint@5.20'];
 
   if (hasPrettier(configuredTools)) {
-    dependencies.push('tslint-config-prettier@1.15');
+    dependencies.push('tslint-config-prettier@1.18');
   }
 
   if (hasReact(configuredTools)) {
-    dependencies.push('tslint-react@3.6');
+    dependencies.push('tslint-react@4.1');
   }
 
   return dependencies;
