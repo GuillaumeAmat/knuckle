@@ -40,8 +40,7 @@
     "build": "rimraf dist && babel src -d dist",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "preversion": "npm test && npm run build",
-    "postversion": "git push && git push --tags"
+    "preversion": "yarn test && yarn build"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
