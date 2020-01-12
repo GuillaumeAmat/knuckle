@@ -58,7 +58,7 @@
     "eslint-config-prettier": "3.3",
     "eslint-plugin-jest": "21.22",
     "eslint-plugin-prettier": "3.0",
-    "husky": "1.2",
+    "husky": "4.0",
     "jest": "^24.9.0",
     "lint-staged": "8.1",
     "nyc": "^14.1.1",

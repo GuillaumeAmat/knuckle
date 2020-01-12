@@ -1,5 +1,5 @@
 function getDependencies() {
-  return ['husky@1.2'];
+  return ['husky@4.0'];
 }
 
 module.exports = {
