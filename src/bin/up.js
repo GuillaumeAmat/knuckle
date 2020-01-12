@@ -2,9 +2,9 @@ const program = require('commander');
 const { cosmiconfigSync } = require('cosmiconfig');
 const path = require('path');
 
-const { writeFile } = require('../utils/file');
-const { printErrorAndExit } = require('../utils/output');
-const { install } = require('../utils/packageManager');
+const { writeFile } = require('../utils/writeFile');
+const { printErrorAndExit } = require('../utils/printErrorAndExit');
+const { installDependencies } = require('../lib/installDependencies');
 
 program
   .command('up')
@@ -36,7 +36,13 @@ program
     const dependencies = [];
 
     for (const toolName of tools) {
-      const configurations = require(path.join(__dirname, '../tools', toolName, 'configurations'));
+      const { generateConfigurations } = require(path.join(
+        __dirname,
+        '../tools',
+        toolName,
+        'generateConfigurations',
+      ));
+      const configurations = generateConfigurations();
 
       for (const configuration of configurations) {
         const configFilePath = path.join(process.cwd(), configuration.filename);
@@ -46,18 +52,18 @@ program
       }
 
       if (command.install) {
-        const toolDependencies = require(path.join(
+        const { getDependencies } = require(path.join(
           __dirname,
           '../tools',
           toolName,
-          'dependencies',
+          'getDependencies',
         ));
-        dependencies.push(...toolDependencies.getDependencies(tools));
+        dependencies.push(...getDependencies(tools));
       }
     }
 
     if (command.install) {
-      const output = install(dependencies);
+      const output = installDependencies(dependencies);
 
       /* istanbul ignore else */
       if (process.env.NODE_ENV === 'test') {

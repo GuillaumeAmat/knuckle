@@ -1,4 +1,5 @@
-const { hasPrettier, hasReact } = require('../../utils/hasDependency');
+const { hasPrettier } = require('../prettier/hasPrettier');
+const { hasReact } = require('../../lib/hasReact');
 
 function getDependencies(configuredTools) {
   const dependencies = ['tslint@5.20'];
@@ -14,6 +15,4 @@ function getDependencies(configuredTools) {
   return dependencies;
 }
 
-module.exports = {
-  getDependencies,
-};
+module.exports = { getDependencies };

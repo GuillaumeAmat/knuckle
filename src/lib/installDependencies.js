@@ -1,7 +1,7 @@
 const fs = require('fs');
 const spawn = require('cross-spawn');
 
-const { printMessage } = require('../utils/output');
+const { printMessage } = require('../utils/printMessage');
 
 const cwdFiles = fs.readdirSync(process.cwd());
 
@@ -13,7 +13,12 @@ function isYarnHandledProject() {
   return cwdFiles.includes('yarn.lock');
 }
 
-function install(dependencies) {
+/**
+ * Install the given dependencies by using the project's package manager.
+ *
+ * @param {Array} dependencies
+ */
+function installDependencies(dependencies) {
   let bin = 'npm';
   let args = ['install', '-D', ...dependencies];
 
@@ -39,7 +44,4 @@ function install(dependencies) {
   }
 }
 
-module.exports = {
-  install,
-  isYarnHandledProject,
-};
+module.exports = { installDependencies };

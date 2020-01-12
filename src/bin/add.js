@@ -4,9 +4,11 @@ const inquirer = require('inquirer');
 const sortedUniq = require('lodash/sortedUniq');
 const path = require('path');
 
-const { writeJson } = require('../utils/file');
-const { getToolList, validateToolList } = require('../utils/tool');
-const { printErrorAndExit, printMessageAndExit } = require('../utils/output');
+const { writeJson } = require('../utils/writeJson');
+const { getToolList } = require('../lib/getToolList');
+const { validateToolList } = require('../lib/validateToolList');
+const { printErrorAndExit } = require('../utils/printErrorAndExit');
+const { printMessageAndExit } = require('../utils/printMessageAndExit');
 
 program
   .command('add [toolname...]')

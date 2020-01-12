@@ -3,7 +3,7 @@ const { cosmiconfigSync } = require('cosmiconfig');
 const difference = require('lodash/difference');
 const sortedUniq = require('lodash/sortedUniq');
 
-const { writeJson } = require('../utils/file');
+const { writeJson } = require('../utils/writeJson');
 
 require('../tools/eslint/command');
 require('../tools/lint-staged/command');

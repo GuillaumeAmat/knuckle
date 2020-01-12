@@ -1,3 +1,5 @@
 const path = require('path');
 
-module.exports = path.join(__dirname, '../../bin/index.js');
+const binScriptPath = path.join(__dirname, '../../bin/index.js');
+
+module.exports = { binScriptPath };

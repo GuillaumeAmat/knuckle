@@ -1,3 +1,5 @@
 const { EOL } = require('os');
 
-module.exports = (filename, content) => content.split(EOL);
+const cosmiconfigListLoader = (filename, content) => content.split(EOL);
+
+module.exports = { cosmiconfigListLoader };

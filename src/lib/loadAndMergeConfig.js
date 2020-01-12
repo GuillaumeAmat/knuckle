@@ -2,7 +2,15 @@ const { cosmiconfigSync } = require('cosmiconfig');
 const fs = require('fs');
 const path = require('path');
 
-module.exports = function(toolName, initialValue = {}, cosmiconfigOptions = {}) {
+/**
+ * Loads the Knuckle default configuration for a given tool
+ * and merge it with the `initialValue` from the end user.
+ *
+ * @param {string} toolName
+ * @param {Object} initialValue
+ * @param {Object} cosmiconfigOptions
+ */
+function loadAndMergeConfig(toolName, initialValue = {}, cosmiconfigOptions = {}) {
   const toolDirectory = fs.realpathSync(path.join(__dirname, '../../config', toolName));
 
   const defaultConfigExplorer = cosmiconfigSync(toolName, {
@@ -33,4 +41,6 @@ module.exports = function(toolName, initialValue = {}, cosmiconfigOptions = {}) 
   } else {
     return { ...initialValue, ...defaultConfig, ...overwriteConfig };
   }
-};
+}
+
+module.exports = { loadAndMergeConfig };

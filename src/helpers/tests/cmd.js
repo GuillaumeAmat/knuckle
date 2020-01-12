@@ -11,7 +11,7 @@
 const { constants } = require('os');
 const spawn = require('cross-spawn');
 const concat = require('concat-stream');
-const projectPath = require('./projectPath');
+const { projectPath } = require('./projectPath');
 const PATH = process.env.PATH;
 
 /**

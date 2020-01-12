@@ -1,3 +1,5 @@
 const path = require('path');
 
-module.exports = path.join(__dirname, '../../..');
+const projectPath = path.join(__dirname, '../../..');
+
+module.exports = { projectPath };

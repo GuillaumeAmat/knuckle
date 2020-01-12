@@ -1,14 +1,21 @@
 const fs = require('fs');
 const path = require('path');
 
-const binScriptPath = require('../../helpers/tests/binScriptPath');
+const { binScriptPath } = require('../../helpers/tests/binScriptPath');
 const cmd = require('../../helpers/tests/cmd');
-const getKnuckleConfig = require('../../helpers/tests/getKnuckleConfig');
-const setupPristineTestFolder = require('../../helpers/tests/setupPristineTestFolder');
-const { writeJson } = require('../../utils/file');
+const { getKnuckleConfig } = require('../../helpers/tests/getKnuckleConfig');
+const { setupPristineTestFolder } = require('../../helpers/tests/setupPristineTestFolder');
+const { writeJson } = require('../../utils/writeJson');
 
-const eslintConfiguration = require('../../tools/eslint/configurations');
-const prettierConfiguration = require('../../tools/prettier/configurations');
+const {
+  generateConfigurations: eslintGenerateConfigurations,
+} = require('../../tools/eslint/generateConfigurations');
+const {
+  generateConfigurations: prettierGenerateConfigurations,
+} = require('../../tools/prettier/generateConfigurations');
+
+const eslintConfigurations = eslintGenerateConfigurations();
+const prettierConfigurations = prettierGenerateConfigurations();
 
 setupPristineTestFolder();
 
@@ -72,8 +79,8 @@ describe('UP', () => {
     await cmd.run('node', [binScriptPath, 'up', '--no-install']);
 
     const cwdFiles = fs.readdirSync(process.cwd());
-    const eslintConfigurationFiles = eslintConfiguration.map(config => config.filename);
-    const prettierConfigurationFiles = prettierConfiguration.map(config => config.filename);
+    const eslintConfigurationFiles = eslintConfigurations.map(config => config.filename);
+    const prettierConfigurationFiles = prettierConfigurations.map(config => config.filename);
     const configFilesToFind = [...eslintConfigurationFiles, ...prettierConfigurationFiles];
 
     expect(cwdFiles).toEqual(expect.arrayContaining(configFilesToFind));
@@ -92,8 +99,8 @@ describe('UP', () => {
     expect(output).toMatchSnapshot();
 
     const cwdFiles = fs.readdirSync(process.cwd());
-    const eslintConfigurationFiles = eslintConfiguration.map(config => config.filename);
-    const prettierConfigurationFiles = prettierConfiguration.map(config => config.filename);
+    const eslintConfigurationFiles = eslintConfigurations.map(config => config.filename);
+    const prettierConfigurationFiles = prettierConfigurations.map(config => config.filename);
     const configFilesToFind = [...eslintConfigurationFiles, ...prettierConfigurationFiles];
 
     expect(cwdFiles).toEqual(expect.arrayContaining(configFilesToFind));
@@ -114,8 +121,8 @@ describe('UP', () => {
     expect(output).toMatchSnapshot();
 
     const cwdFiles = fs.readdirSync(process.cwd());
-    const eslintConfigurationFiles = eslintConfiguration.map(config => config.filename);
-    const prettierConfigurationFiles = prettierConfiguration.map(config => config.filename);
+    const eslintConfigurationFiles = eslintConfigurations.map(config => config.filename);
+    const prettierConfigurationFiles = prettierConfigurations.map(config => config.filename);
     const configFilesToFind = [...eslintConfigurationFiles, ...prettierConfigurationFiles];
 
     expect(cwdFiles).toEqual(expect.arrayContaining(configFilesToFind));
@@ -136,8 +143,8 @@ describe('UP', () => {
     expect(output).toMatchSnapshot();
 
     const cwdFiles = fs.readdirSync(process.cwd());
-    const eslintConfigurationFiles = eslintConfiguration.map(config => config.filename);
-    const prettierConfigurationFiles = prettierConfiguration.map(config => config.filename);
+    const eslintConfigurationFiles = eslintConfigurations.map(config => config.filename);
+    const prettierConfigurationFiles = prettierConfigurations.map(config => config.filename);
     const configFilesToFind = [...eslintConfigurationFiles, ...prettierConfigurationFiles];
 
     expect(cwdFiles).toEqual(expect.arrayContaining(configFilesToFind));

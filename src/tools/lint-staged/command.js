@@ -1,7 +1,7 @@
 const program = require('commander');
 const spawn = require('cross-spawn');
 
-const { getPathToBin } = require('../../utils/tool');
+const { getPathToBin } = require('../../lib/getPathToBin');
 
 module.exports = program
   .command('lint-staged [path...]')

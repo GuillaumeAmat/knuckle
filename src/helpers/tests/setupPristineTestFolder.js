@@ -27,4 +27,4 @@ function setupPristineTestFolder() {
   });
 }
 
-module.exports = setupPristineTestFolder;
+module.exports = { setupPristineTestFolder };

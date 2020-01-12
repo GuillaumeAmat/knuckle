@@ -1,4 +1,6 @@
-const { hasJest, hasPrettier, hasReact } = require('../../utils/hasDependency');
+const { hasPrettier } = require('../prettier/hasPrettier');
+const { hasJest } = require('../../lib/hasJest');
+const { hasReact } = require('../../lib/hasReact');
 
 function getDependencies(configuredTools) {
   const dependencies = ['babel-eslint@10.0', 'eslint@6.8'];
@@ -18,6 +20,4 @@ function getDependencies(configuredTools) {
   return dependencies;
 }
 
-module.exports = {
-  getDependencies,
-};
+module.exports = { getDependencies };

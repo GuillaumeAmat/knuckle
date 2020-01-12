@@ -1,7 +1,7 @@
-const binScriptPath = require('../../helpers/tests/binScriptPath');
+const { binScriptPath } = require('../../helpers/tests/binScriptPath');
 const cmd = require('../../helpers/tests/cmd');
-const getKnuckleConfig = require('../../helpers/tests/getKnuckleConfig');
-const setupPristineTestFolder = require('../../helpers/tests/setupPristineTestFolder');
+const { getKnuckleConfig } = require('../../helpers/tests/getKnuckleConfig');
+const { setupPristineTestFolder } = require('../../helpers/tests/setupPristineTestFolder');
 
 setupPristineTestFolder();
 

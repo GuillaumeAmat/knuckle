@@ -1,5 +1,5 @@
 const packageJson = require('../../../package.json');
-const binScriptPath = require('../../helpers/tests/binScriptPath');
+const { binScriptPath } = require('../../helpers/tests/binScriptPath');
 const cmd = require('../../helpers/tests/cmd');
 
 describe('Knuckle', () => {
