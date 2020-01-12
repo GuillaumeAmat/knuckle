@@ -13,8 +13,8 @@
 ## Dependencies
 
 - `babel-eslint@10.0`
-- `eslint@5.10`
-- `eslint-config-prettier@3.3`
-- `eslint-plugin-prettier@3.0`
-- `eslint-plugin-react@7.11`
-- `eslint-plugin-jest@21.22`
+- `eslint@6.8`
+- `eslint-config-prettier@6.9`
+- `eslint-plugin-prettier@3.1`
+- `eslint-plugin-react@7.17`
+- `eslint-plugin-jest@23.6`

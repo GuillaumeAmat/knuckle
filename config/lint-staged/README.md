@@ -10,4 +10,4 @@
 
 ## Dependencies
 
-- `lint-staged@8.1`
+- `lint-staged@9.5`

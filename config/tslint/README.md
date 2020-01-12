@@ -11,6 +11,6 @@
 
 ## Dependencies
 
-- `tslint@5.11`
-- `tslint-config-prettier@1.15`
-- `tslint-react@3.6`
+- `tslint@5.20`
+- `tslint-config-prettier@1.18`
+- `tslint-react@4.1`
