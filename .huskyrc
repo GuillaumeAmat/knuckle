@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "pre-commit": "npm run knuckle -- lint-staged",
-    "commit-msg": "npm run knuckle -- commitlint -E HUSKY_GIT_PARAMS"
+    "pre-commit": "yarn knuckle lint-staged",
+    "commit-msg": "yarn knuckle commitlint -E HUSKY_GIT_PARAMS"
   }
 }

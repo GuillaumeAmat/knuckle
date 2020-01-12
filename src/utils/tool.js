@@ -4,7 +4,7 @@ const readPkgUp = require('read-pkg-up');
 
 const { packageJson } = readPkgUp.sync();
 const isKnuckleInKnuckle = packageJson.name === 'knuckle';
-const knuckleCommand = isKnuckleInKnuckle ? 'npm run knuckle --' : 'npx knuckle';
+const knuckleCommand = isKnuckleInKnuckle ? 'yarn knuckle' : 'npx knuckle';
 
 function getPathToBin(moduleName, commandName) {
   const modPkgPath = require.resolve(`${moduleName}/package.json`);
