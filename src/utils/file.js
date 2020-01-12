@@ -4,7 +4,7 @@ const { EOL } = require('os');
 const EOF = EOL;
 
 function formatJson(object) {
-  return JSON.stringify(object, null, '  ');
+  return JSON.stringify(object, null, 2);
 }
 
 function writeFile(path, content) {

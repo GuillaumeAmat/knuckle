@@ -1,3 +1,4 @@
+const { formatJson } = require('../../utils/file');
 const loadAndMergeConfig = require('../../utils/loadAndMergeConfig');
 
 module.exports = [
@@ -12,7 +13,7 @@ module.exports = [
         },
       );
 
-      return `module.exports = ${JSON.stringify(config, null, '  ')}`;
+      return `module.exports = ${formatJson(config)}`;
     },
     format: config => config,
   },
