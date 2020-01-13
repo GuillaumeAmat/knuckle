@@ -1,24 +1,27 @@
 const { formatJson } = require('../../utils/formatJson');
-const { hasPrettier } = require('../prettier/hasPrettier');
-const { hasReact } = require('../../lib/hasReact');
 const { loadAndMergeConfig } = require('../../lib/loadAndMergeConfig');
+const { hasPrettier } = require('../../lib/hasPrettier');
+const { hasReact } = require('../../lib/hasReact');
 
-function generateConfigurations() {
+/**
+ * @param {"deep" | "spread" | "replace"} mergeStrategy
+ */
+function generateConfigurations(mergeStrategy) {
   return [
     {
       filename: 'tslint.json',
-      build: configuredTools => {
-        const config = loadAndMergeConfig('tslint', {}, { searchPlaces: ['tslint.json'] });
-
-        return {
-          ...config,
-          extends: [
-            ...config.extends,
-            hasPrettier(configuredTools) ? 'tslint-config-prettier' : false,
-            hasReact(configuredTools) ? 'tslint-react' : false,
-          ].filter(Boolean),
-        };
-      },
+      build: configuredTools =>
+        loadAndMergeConfig(
+          'tslint',
+          mergeStrategy,
+          {
+            extends: [
+              hasPrettier(configuredTools) ? 'tslint-config-prettier' : false,
+              hasReact(configuredTools) ? 'tslint-react' : false,
+            ].filter(Boolean),
+          },
+          { searchPlaces: ['tslint.json'] },
+        ),
       format: config => formatJson(config),
     },
   ];

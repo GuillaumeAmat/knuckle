@@ -1,4 +1,4 @@
-const { hasDependency } = require('../../lib/hasDependency');
+const { hasDependency } = require('./hasDependency');
 
 const hasCommitlint = configuredTools =>
   hasDependency('@commitlint/cli') || configuredTools.includes('commitlint');

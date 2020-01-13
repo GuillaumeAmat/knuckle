@@ -6,21 +6,19 @@ exports[`Usage should print the usage 1`] = `
 "Usage: index <command> [options]
 
 Options:
-  -v, --version                    output the version number
-  -h, --help                       output usage information
+  -v, --version                             output the version number
+  -h, --help                                output usage information
 
 Commands:
-  add [toolname...]                Ask Knuckle to handle new tools
-  eslint [options] [path...]       An AST-based pattern checker for
-                                   JavaScript
-  lint-staged [options] [path...]  Lint files staged by git
-  prettier [options] [path...]     Prettier is an opinionated code formatter
-  tslint [options] [path...]       An extensible linter for the TypeScript
-                                   language
-  remove <toolname> [toolname...]  Tell to Knuckle to not handle those tools
-                                   anymore
-  up [options]                     Create the configuration files
-  commitlint [options] [path...]   Lint your conventional commits
+  add [toolname...]                         Ask Knuckle to handle new tools
+  eslint [options] [path...]                An AST-based pattern checker for JavaScript
+  lint-staged [options] [path...]           Lint files staged by git
+  prettier [options] [path...]              Prettier is an opinionated code formatter
+  tslint [options] [path...]                An extensible linter for the TypeScript language
+  remove <toolname> [toolname...]           Tell to Knuckle to not handle those tools anymore
+  set-merge-strategy <toolname> <strategy>  Set a new merge strategy for a tool (use \`*\` to set the default strategy)
+  up [options]                              Create the configuration files
+  commitlint [options] [path...]            Lint your conventional commits
 "
 `;
 
@@ -28,21 +26,19 @@ exports[`Usage should print the usage 2`] = `
 "Usage: index <command> [options]
 
 Options:
-  -v, --version                    output the version number
-  -h, --help                       output usage information
+  -v, --version                             output the version number
+  -h, --help                                output usage information
 
 Commands:
-  add [toolname...]                Ask Knuckle to handle new tools
-  eslint [options] [path...]       An AST-based pattern checker for
-                                   JavaScript
-  lint-staged [options] [path...]  Lint files staged by git
-  prettier [options] [path...]     Prettier is an opinionated code formatter
-  tslint [options] [path...]       An extensible linter for the TypeScript
-                                   language
-  remove <toolname> [toolname...]  Tell to Knuckle to not handle those tools
-                                   anymore
-  up [options]                     Create the configuration files
-  commitlint [options] [path...]   Lint your conventional commits
+  add [toolname...]                         Ask Knuckle to handle new tools
+  eslint [options] [path...]                An AST-based pattern checker for JavaScript
+  lint-staged [options] [path...]           Lint files staged by git
+  prettier [options] [path...]              Prettier is an opinionated code formatter
+  tslint [options] [path...]                An extensible linter for the TypeScript language
+  remove <toolname> [toolname...]           Tell to Knuckle to not handle those tools anymore
+  set-merge-strategy <toolname> <strategy>  Set a new merge strategy for a tool (use \`*\` to set the default strategy)
+  up [options]                              Create the configuration files
+  commitlint [options] [path...]            Lint your conventional commits
 "
 `;
 
@@ -50,20 +46,18 @@ exports[`Usage should print the usage 3`] = `
 "Usage: index <command> [options]
 
 Options:
-  -v, --version                    output the version number
-  -h, --help                       output usage information
+  -v, --version                             output the version number
+  -h, --help                                output usage information
 
 Commands:
-  add [toolname...]                Ask Knuckle to handle new tools
-  eslint [options] [path...]       An AST-based pattern checker for
-                                   JavaScript
-  lint-staged [options] [path...]  Lint files staged by git
-  prettier [options] [path...]     Prettier is an opinionated code formatter
-  tslint [options] [path...]       An extensible linter for the TypeScript
-                                   language
-  remove <toolname> [toolname...]  Tell to Knuckle to not handle those tools
-                                   anymore
-  up [options]                     Create the configuration files
-  commitlint [options] [path...]   Lint your conventional commits
+  add [toolname...]                         Ask Knuckle to handle new tools
+  eslint [options] [path...]                An AST-based pattern checker for JavaScript
+  lint-staged [options] [path...]           Lint files staged by git
+  prettier [options] [path...]              Prettier is an opinionated code formatter
+  tslint [options] [path...]                An extensible linter for the TypeScript language
+  remove <toolname> [toolname...]           Tell to Knuckle to not handle those tools anymore
+  set-merge-strategy <toolname> <strategy>  Set a new merge strategy for a tool (use \`*\` to set the default strategy)
+  up [options]                              Create the configuration files
+  commitlint [options] [path...]            Lint your conventional commits
 "
 `;

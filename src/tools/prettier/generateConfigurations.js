@@ -4,17 +4,20 @@ const { cosmiconfigListLoader } = require('../../utils/cosmiconfigListLoader');
 const { formatJson } = require('../../utils/formatJson');
 const { loadAndMergeConfig } = require('../../lib/loadAndMergeConfig');
 
-function generateConfigurations() {
+/**
+ * @param {"deep" | "spread" | "replace"} mergeStrategy
+ */
+function generateConfigurations(mergeStrategy) {
   return [
     {
       filename: '.prettierrc',
-      build: () => loadAndMergeConfig('prettier'),
+      build: () => loadAndMergeConfig('prettier', mergeStrategy),
       format: config => formatJson(config),
     },
     {
       filename: '.prettierignore',
       build: () =>
-        loadAndMergeConfig('prettier', [], {
+        loadAndMergeConfig('prettier', mergeStrategy, [], {
           searchPlaces: ['.prettierignore'],
           loaders: { noExt: cosmiconfigListLoader },
         }),

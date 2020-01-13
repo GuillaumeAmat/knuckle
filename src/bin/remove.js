@@ -1,7 +1,7 @@
 const program = require('commander');
 const { cosmiconfigSync } = require('cosmiconfig');
-const difference = require('lodash/difference');
-const sortedUniq = require('lodash/sortedUniq');
+const difference = require('lodash.difference');
+const sortedUniq = require('lodash.sorteduniq');
 
 const { writeJson } = require('../utils/writeJson');
 

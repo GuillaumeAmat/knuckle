@@ -3,9 +3,9 @@ const cmd = require('../../helpers/tests/cmd');
 const { getKnuckleConfig } = require('../../helpers/tests/getKnuckleConfig');
 const { setupPristineTestFolder } = require('../../helpers/tests/setupPristineTestFolder');
 
-setupPristineTestFolder();
-
 describe('REMOVE', () => {
+  setupPristineTestFolder();
+
   it('should fail if there are no tools in the input', async done => {
     try {
       await cmd.run('node', [binScriptPath, 'remove']);

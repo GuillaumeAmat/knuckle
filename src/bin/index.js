@@ -6,6 +6,7 @@ const { version: knuckleVersion } = require('../../package.json');
 
 require('./add');
 require('./remove');
+require('./set-merge-strategy');
 require('./up');
 
 require('../tools/commitlint/command');

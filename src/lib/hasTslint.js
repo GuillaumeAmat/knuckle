@@ -1,4 +1,4 @@
-const { hasDependency } = require('../../lib/hasDependency');
+const { hasDependency } = require('./hasDependency');
 
 const hasTslint = configuredTools => hasDependency('tslint') || configuredTools.includes('tslint');
 

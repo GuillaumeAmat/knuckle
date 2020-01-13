@@ -22,6 +22,7 @@ Instead, Knuckle does it for you. You only need to:
 - [Usage](#usage)
   - [Configurations](#configurations)
   - [Extend configurations](#extend-configurations)
+  - [Merge strategy](#merge-strategy)
   - [Help](#help)
 
 ## Installation
@@ -97,6 +98,85 @@ Then, `knuckle up --no-install` to re-generate the configuration files and your 
 You can see that `semi` is set to `false` in the root `.prettierrc`.
 
 Note that even if the final generated configuration file is named `.prettierrc`, you can choose any of the common filenames for your overwrite file (eg: `.prettierrc.js`). Knuckle will figure it on its own.
+
+### Merge strategy
+
+By default, the configuration extension is done by doing a _deep merge_.
+
+If a configuration from Knuckle is like that:
+
+```json
+{
+  "a_string": "a value",
+  "an_object": {
+    "some_key": {
+      "another_key": true,
+      "another_one": false
+    }
+  }
+}
+```
+
+And the custom extension is like that:
+
+```json
+{
+  "a_number": 123,
+  "an_object": {
+    "some_key": {
+      "another_one": true,
+      "an_array": [1, 2, 3]
+    }
+  }
+}
+```
+
+The result will be:
+
+```json
+{
+  "a_string": "a value",
+  "a_number": 123,
+  "an_object": {
+    "some_key": {
+      "another_key": true,
+      "another_one": true,
+      "an_array": [1, 2, 3]
+    }
+  }
+}
+```
+
+But that behavior might not be ideal for your use case. So Knuckle comes with two other behaviors: `replace` and `spread`.
+
+_Replace_ remove the whole configuration from the default Knuckle output and replace it with the custom extension.
+
+_Spread_ acts like the ES6 spread operator. It replaces the first level of configuration items. So the final output for the previous example would be:
+
+```json
+{
+  "a_string": "a value",
+  "a_number": 123,
+  "an_object": {
+    "some_key": {
+      "another_one": true,
+      "an_array": [1, 2, 3]
+    }
+  }
+}
+```
+
+... as `an_object` would be entirely replaced by the custom configuration item.
+
+To define which strategy to use for each tool, use the `set-merge-strategy` command:
+
+```bash
+$ yarn knuckle set-merge-strategy default replace
+$ yarn knuckle set-merge-strategy eslint spread
+$ yarn knuckle set-merge-strategy husky deep
+```
+
+In the sample above, we chose to define the default behavior to `replace` instead of `deep`, _ESLint_ uses now the `spread` behavior and _Husky_ sticks with the `deep` behavior. As _Lint-Staged_ is not mentionned, it uses the default behavior, which is now `replace`. Obviously, you don't have to set the `default` item if you want to use the `deep` behavior by default.
 
 ### Help
 

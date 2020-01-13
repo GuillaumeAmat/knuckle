@@ -2,9 +2,11 @@ const program = require('commander');
 const { cosmiconfigSync } = require('cosmiconfig');
 const path = require('path');
 
+const { DEFAULT_MERGE_STRATEGY } = require('../lib/constants');
+const { installDependencies } = require('../lib/installDependencies');
+const { isValidMergeStrategy } = require('../lib/isValidMergeStrategy');
 const { writeFile } = require('../utils/writeFile');
 const { printErrorAndExit } = require('../utils/printErrorAndExit');
-const { installDependencies } = require('../lib/installDependencies');
 
 program
   .command('up')
@@ -32,8 +34,10 @@ program
       );
     }
 
-    const { tools } = configSearch.config;
+    const { mergeStrategies, tools } = configSearch.config;
     const dependencies = [];
+    const defaultMergeStrategy =
+      (mergeStrategies && mergeStrategies.default) || DEFAULT_MERGE_STRATEGY;
 
     for (const toolName of tools) {
       const { generateConfigurations } = require(path.join(
@@ -42,7 +46,14 @@ program
         toolName,
         'generateConfigurations',
       ));
-      const configurations = generateConfigurations();
+
+      let mergeStrategy = (mergeStrategies && mergeStrategies[toolName]) || defaultMergeStrategy;
+
+      if (!isValidMergeStrategy(mergeStrategy)) {
+        mergeStrategy = defaultMergeStrategy;
+      }
+
+      const configurations = generateConfigurations(mergeStrategy);
 
       for (const configuration of configurations) {
         const configFilePath = path.join(process.cwd(), configuration.filename);

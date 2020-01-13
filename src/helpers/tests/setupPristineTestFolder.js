@@ -6,7 +6,6 @@ const rimraf = require('rimraf');
 const cmd = require('./cmd');
 
 const repoFolder = process.cwd();
-let testFolder;
 
 /**
  * Knuckle's integration tests needs pristine folders to create fake projects and run its commands.
@@ -15,10 +14,12 @@ let testFolder;
  * - After each test: it goes back to the Knuckle clone folder and remove the temporary folder and its content.
  */
 function setupPristineTestFolder() {
+  let testFolder;
+
   beforeEach(async () => {
     testFolder = fs.mkdtempSync(path.join(os.tmpdir(), 'knuckle-'));
     process.chdir(testFolder);
-    await cmd.runWithoutNyc('npm', ['init', '-y']);
+    return await cmd.runWithoutNyc('npm', ['init', '-y']);
   });
 
   afterEach(() => {

@@ -1,5 +1,5 @@
-const { hasPrettier } = require('../prettier/hasPrettier');
 const { hasJest } = require('../../lib/hasJest');
+const { hasPrettier } = require('../../lib/hasPrettier');
 const { hasReact } = require('../../lib/hasReact');
 
 function getDependencies(configuredTools) {

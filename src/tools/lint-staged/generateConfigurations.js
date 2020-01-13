@@ -1,31 +1,19 @@
 const getSupportedExtensions = require('../prettier/getSupportedExtensions');
 const { formatJson } = require('../../utils/formatJson');
-const { hasEslint } = require('../eslint/hasEslint');
-const { hasPrettier } = require('../prettier/hasPrettier');
-const { hasTslint } = require('../tslint/hasTslint');
+const { hasEslint } = require('../../lib/hasEslint');
+const { hasPrettier } = require('../../lib/hasPrettier');
+const { hasTslint } = require('../../lib/hasTslint');
 const { loadAndMergeConfig } = require('../../lib/loadAndMergeConfig');
 const { getKnuckleCommand } = require('../../lib/getKnuckleCommand');
 
-function generateConfigurations() {
+/**
+ * @param {"deep" | "spread" | "replace"} mergeStrategy
+ */
+function generateConfigurations(mergeStrategy) {
   return [
     {
       filename: '.lintstagedrc',
       build: configuredTools => {
-        const config = loadAndMergeConfig(
-          'lint-staged',
-          {},
-          {
-            searchPlaces: [
-              'package.json',
-              '.lintstagedrc',
-              '.lintstagedrc.json',
-              '.lintstagedrc.yaml',
-              '.lintstagedrc.yml',
-              '.lintstagedrc.js',
-              'lint-staged.config.js',
-            ],
-          },
-        );
         const hasPrettierCheck = hasPrettier(configuredTools);
         const hasEslintCheck = hasEslint(configuredTools);
         const hasTslintCheck = hasTslint(configuredTools);
@@ -43,12 +31,26 @@ function generateConfigurations() {
           '**/*.{ts,tsx}': [`${getKnuckleCommand()} tslint`],
         };
 
-        return {
-          ...config,
-          ...(hasPrettierCheck && prettierLinters),
-          ...(hasEslintCheck && eslintLinters),
-          ...(hasTslintCheck && tslintLinters),
-        };
+        return loadAndMergeConfig(
+          'lint-staged',
+          mergeStrategy,
+          {
+            ...(hasPrettierCheck && prettierLinters),
+            ...(hasEslintCheck && eslintLinters),
+            ...(hasTslintCheck && tslintLinters),
+          },
+          {
+            searchPlaces: [
+              'package.json',
+              '.lintstagedrc',
+              '.lintstagedrc.json',
+              '.lintstagedrc.yaml',
+              '.lintstagedrc.yml',
+              '.lintstagedrc.js',
+              'lint-staged.config.js',
+            ],
+          },
+        );
       },
       format: config => formatJson(config),
     },

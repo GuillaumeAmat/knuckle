@@ -1,13 +1,17 @@
 const { formatJson } = require('../../utils/formatJson');
 const { loadAndMergeConfig } = require('../../lib/loadAndMergeConfig');
 
-function generateConfigurations() {
+/**
+ * @param {"deep" | "spread" | "replace"} mergeStrategy
+ */
+function generateConfigurations(mergeStrategy) {
   return [
     {
       filename: 'commitlint.config.js',
       build: () => {
         const config = loadAndMergeConfig(
           'commitlint',
+          mergeStrategy,
           {},
           {
             searchPlaces: ['commitlint.config.js'],

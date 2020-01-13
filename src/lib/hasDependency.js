@@ -1,5 +1,5 @@
 const readPkgUp = require('read-pkg-up');
-const has = require('lodash/has');
+const has = require('lodash.has');
 
 // Read this
 // https://github.com/sindresorhus/read-pkg-up

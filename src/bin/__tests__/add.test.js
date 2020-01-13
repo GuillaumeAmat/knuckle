@@ -4,9 +4,9 @@ const { getKnuckleConfig } = require('../../helpers/tests/getKnuckleConfig');
 const { setupPristineTestFolder } = require('../../helpers/tests/setupPristineTestFolder');
 const { getToolList } = require('../../lib/getToolList');
 
-setupPristineTestFolder();
-
 describe('ADD', () => {
+  setupPristineTestFolder();
+
   it('should not generate a config file', async done => {
     await cmd.run(
       'node',

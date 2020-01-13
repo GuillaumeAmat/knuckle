@@ -1,17 +1,37 @@
 const { formatJson } = require('../../utils/formatJson');
-const { hasCommitlint } = require('../commitlint/hasCommitlint');
-const { hasLintStaged } = require('../lint-staged/hasLintStaged');
-const { loadAndMergeConfig } = require('../../lib/loadAndMergeConfig');
 const { getKnuckleCommand } = require('../../lib/getKnuckleCommand');
+const { hasCommitlint } = require('../../lib/hasCommitlint');
+const { hasLintStaged } = require('../../lib/hasLintStaged');
+const { loadAndMergeConfig } = require('../../lib/loadAndMergeConfig');
 
-function generateConfigurations() {
+/**
+ * @param {"deep" | "spread" | "replace"} mergeStrategy
+ */
+function generateConfigurations(mergeStrategy) {
   return [
     {
       filename: '.huskyrc',
       build: configuredTools => {
-        const config = loadAndMergeConfig(
+        let preCommitHook;
+        let commitMsgHook;
+
+        if (hasLintStaged(configuredTools)) {
+          preCommitHook = { 'pre-commit': `${getKnuckleCommand()} lint-staged` };
+        }
+
+        if (hasCommitlint(configuredTools)) {
+          commitMsgHook = { 'commit-msg': `${getKnuckleCommand()} commitlint -E HUSKY_GIT_PARAMS` };
+        }
+
+        return loadAndMergeConfig(
           'lint-staged',
-          {},
+          mergeStrategy,
+          {
+            hooks: {
+              ...preCommitHook,
+              ...commitMsgHook,
+            },
+          },
           {
             searchPlaces: [
               'package.json',
@@ -24,26 +44,6 @@ function generateConfigurations() {
             ],
           },
         );
-
-        let preCommitHook;
-        let commitMsgHook;
-
-        if (hasLintStaged(configuredTools)) {
-          preCommitHook = { 'pre-commit': `${getKnuckleCommand()} lint-staged` };
-        }
-
-        if (hasCommitlint(configuredTools)) {
-          commitMsgHook = { 'commit-msg': `${getKnuckleCommand()} commitlint -E HUSKY_GIT_PARAMS` };
-        }
-
-        return {
-          ...config,
-          hooks: {
-            ...config.hooks,
-            ...preCommitHook,
-            ...commitMsgHook,
-          },
-        };
       },
       format: config => formatJson(config),
     },
