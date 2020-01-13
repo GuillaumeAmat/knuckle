@@ -31,16 +31,16 @@ function generateConfigurations() {
         const hasTslintCheck = hasTslint(configuredTools);
         const prettierLinters = {
           [`**/*{${getSupportedExtensions().join(',')}}`]: [
-            `${getKnuckleCommand} prettier --write`,
+            `${getKnuckleCommand()} prettier --write`,
             'git add',
           ],
-          '**/.!(npm|yarn)*rc': [`${getKnuckleCommand} prettier --write`, 'git add'],
+          '**/.!(npm|yarn)*rc': [`${getKnuckleCommand()} prettier --write`, 'git add'],
         };
         const eslintLinters = {
-          '**/*.{js,jsx}': [`${getKnuckleCommand} eslint`],
+          '**/*.{js,jsx}': [`${getKnuckleCommand()} eslint`],
         };
         const tslintLinters = {
-          '**/*.{ts,tsx}': [`${getKnuckleCommand} tslint`],
+          '**/*.{ts,tsx}': [`${getKnuckleCommand()} tslint`],
         };
 
         return {

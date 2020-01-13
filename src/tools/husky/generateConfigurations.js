@@ -29,11 +29,11 @@ function generateConfigurations() {
         let commitMsgHook;
 
         if (hasLintStaged(configuredTools)) {
-          preCommitHook = { 'pre-commit': `${getKnuckleCommand} lint-staged` };
+          preCommitHook = { 'pre-commit': `${getKnuckleCommand()} lint-staged` };
         }
 
         if (hasCommitlint(configuredTools)) {
-          commitMsgHook = { 'commit-msg': `${getKnuckleCommand} commitlint -E HUSKY_GIT_PARAMS` };
+          commitMsgHook = { 'commit-msg': `${getKnuckleCommand()} commitlint -E HUSKY_GIT_PARAMS` };
         }
 
         return {

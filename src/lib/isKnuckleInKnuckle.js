@@ -6,7 +6,7 @@ const readPkgUp = require('read-pkg-up');
  */
 function isKnuckleInKnuckle() {
   const { packageJson } = readPkgUp.sync();
-  packageJson.name === 'knuckle';
+  return packageJson.name === 'knuckle';
 }
 
 module.exports = { isKnuckleInKnuckle };
