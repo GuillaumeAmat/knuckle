@@ -96,6 +96,8 @@ Then, `knuckle up --no-install` to re-generate the configuration files and your 
 
 You can see that `semi` is set to `false` in the root `.prettierrc`.
 
+Note that even if the final generated configuration file is named `.prettierrc`, you can choose any of the common filenames for your overwrite file (eg: `.prettierrc.js`). Knuckle will figure it on its own.
+
 ### Help
 
 Use the `--help` option in front of any command:
