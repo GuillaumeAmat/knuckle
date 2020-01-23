@@ -31,13 +31,13 @@ All the following steps have to only be ran once.
 
 First, we install Knuckle:
 
-```bash
+```shell
 $ npm install --save-dev knuckle
 ```
 
 Then, we tell to Knuckle to handle some tools:
 
-```bash
+```shell
 $ npx knuckle add prettier eslint lint-staged husky
 or
 $ npx knuckle add # To get interactive
@@ -45,7 +45,7 @@ $ npx knuckle add # To get interactive
 
 Finally, Knuckle generates the related configurations at the root of your project:
 
-```bash
+```shell
 $ npx knuckle up
 ```
 
@@ -61,7 +61,7 @@ In the early stages of Knuckle no files were created in your project. It seems h
 
 Now that all the configurations are available, all you need to do is to call the tools within Knuckle:
 
-```bash
+```shell
 $ npx knuckle prettier 'src/**/*.{js,jsx,json}' --write
 ```
 
@@ -170,7 +170,7 @@ _Spread_ acts like the ES6 spread operator. It replaces the first level of confi
 
 To define which strategy to use for each tool, use the `set-merge-strategy` command:
 
-```bash
+```shell
 $ yarn knuckle set-merge-strategy default replace
 $ yarn knuckle set-merge-strategy eslint spread
 $ yarn knuckle set-merge-strategy husky deep
@@ -182,7 +182,7 @@ In the sample above, we chose to define the default behavior to `replace` instea
 
 Use the `--help` option in front of any command:
 
-```bash
+```shell
 $ npx knuckle --help
 $ npx knuckle --help up
 ```

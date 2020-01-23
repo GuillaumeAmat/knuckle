@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SET-MERGE-STRATEGY should fail if the given strategy does not exists 1`] = `
+"
+"
+`;
+
+exports[`SET-MERGE-STRATEGY should fail if the given tool does not exists 1`] = `
+"
+"
+`;

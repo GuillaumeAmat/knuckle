@@ -1,5 +1,8 @@
 {
-  "extends": ["eslint:recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
   "env": {
     "browser": true,
     "es6": true,
@@ -11,7 +14,9 @@
     "sourceType": "module"
   },
   "parser": "babel-eslint",
-  "plugins": ["jest"],
+  "plugins": [
+    "jest"
+  ],
   "rules": {
     "no-case-declarations": "off"
   }

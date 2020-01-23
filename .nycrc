@@ -1,4 +1,8 @@
 {
+  "cache": true,
   "clean": true,
+  "extension": [
+    ".ts"
+  ],
   "reporter": ["lcov"]
 }

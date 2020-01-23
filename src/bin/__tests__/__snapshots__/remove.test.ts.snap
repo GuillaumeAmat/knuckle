@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`REMOVE should fail if there are no tools in the input 1`] = `
+"
+"
+`;

@@ -3,6 +3,11 @@
     "yarn knuckle prettier --write",
     "git add"
   ],
-  "**/.!(npm|yarn)*rc": ["yarn knuckle prettier --write", "git add"],
-  "**/*.{js,jsx}": ["yarn knuckle eslint"]
+  "**/.!(npm|yarn)*rc": [
+    "yarn knuckle prettier --write",
+    "git add"
+  ],
+  "**/*.{js,jsx}": [
+    "yarn knuckle eslint"
+  ]
 }

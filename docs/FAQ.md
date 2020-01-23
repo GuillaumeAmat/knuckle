@@ -40,7 +40,7 @@ More informations in the [Extend configurations](./Usage_guide.md#extend-configu
 
 As Knuckle generates regular configuration files, all you need to do is remove the Knuckle package and its own configuration files:
 
-```bash
+```shell
 $ npm uninstall knuckle && rm -rf ./.knuckle*
 ```
 
